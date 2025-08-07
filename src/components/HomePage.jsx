@@ -107,7 +107,7 @@ export const HomePage = () => {
           {/* Main Content */}
           <div className="hero-main-content relative z-20 text-center max-w-6xl mx-auto">
             
-<<<<<<< HEAD
+
             {/* Title section with reduced spacing */}
             <div className="mb-4 sm:mb-6">
               <h1 className="hero-main-title text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight text-black">
