@@ -24,11 +24,7 @@ const DecorativeImages = () => {
   return (
     <>
       {/* Top Left Image - Group 45 (yellow bg) */}
-<<<<<<< HEAD
       <div className="hero-decorative-image hidden lg:block absolute top-[270px] left-[10px] w-[140px] h-[180px] transform -rotate-6 z-10">
-=======
-      <div className="hero-decorative-image hidden lg:block absolute top-[184px] left-[70px] w-[160px] h-[220px] transform -rotate-15 z-10">
->>>>>>> 0cd3f66e6ff0434e559c2cc841d5fd124385a22d
         <img 
           src={woman1} 
           alt="Professional woman" 
@@ -38,11 +34,7 @@ const DecorativeImages = () => {
       </div>
 
       {/* Top Right Image - Group 46 (pink bg) */}
-<<<<<<< HEAD
       <div className="hero-decorative-image hidden lg:block absolute top-[260px] right-[90px] w-[140px] h-[180px] transform rotate-8 z-10">
-=======
-      <div className="hero-decorative-image hidden lg:block absolute top-[198px] right-[120px] w-[136px] h-[205px] transform rotate-10 z-10">
->>>>>>> 0cd3f66e6ff0434e559c2cc841d5fd124385a22d
         <img 
           src={man2} 
           alt="Professional man" 
@@ -51,13 +43,8 @@ const DecorativeImages = () => {
         />
       </div>
 
-<<<<<<< HEAD
       {/* Bottom Left Image - Group 47 (brown bg) */}
       <div className="hero-decorative-image hidden lg:block absolute top-[550px] left-[80px] w-[200px] h-[280px] transform -rotate-15 z-10">
-=======
-      {/* Bottom Left Image - Group 47 (brown bg) - MOVED DOWN */}
-      <div className="hero-decorative-image hidden lg:block absolute top-[600px] left-[25px] w-[202px] h-[294px] transform -rotate-15 z-10">
->>>>>>> 0cd3f66e6ff0434e559c2cc841d5fd124385a22d
         <img 
           src={man1} 
           alt="Professional man" 
@@ -66,13 +53,8 @@ const DecorativeImages = () => {
         />
       </div>
 
-<<<<<<< HEAD
       {/* Bottom Right Image - Group 48 (white bg) */}
       <div className="hero-decorative-image hidden lg:block absolute top-[520px] right-[100px] w-[220px] h-[300px] transform rotate-15 z-10">
-=======
-      {/* Bottom Right Image - Group 48 (white bg) - MOVED DOWN */}
-      <div className="hero-decorative-image hidden lg:block absolute top-[590px] right-[113px] w-[202px] h-[316px] transform rotate-15 z-10">
->>>>>>> 0cd3f66e6ff0434e559c2cc841d5fd124385a22d
         <img 
           src={woman2} 
           alt="Professional woman" 
@@ -93,7 +75,6 @@ export const HomePage = () => {
     <div className="bg-[#FFECEA] w-full">
       <Header />
 
-<<<<<<< HEAD
       {/* Hero Section - Responsive Layout */}
       <section className="hero-section relative min-h-screen w-full overflow-hidden bg-[#FFECEA] flex flex-col justify-start items-center">
         
@@ -122,18 +103,6 @@ export const HomePage = () => {
               loading="lazy"
             />
           </div>
-=======
-      {/* Hero Section - Desktop Layout */}
-      <section className="hero-section relative min-h-screen w-full overflow-hidden bg-[#FFECEA]">
-        
-        {/* Main Hero Container */}
-        <div className="hero-container relative w-full min-h-screen flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 pt-32 lg:pt-40">
-          
-          {/* Decorative Images - Responsive Positioning */}
-          <div className="decorative-images-container">
-            <DecorativeImages />
-          </div>
->>>>>>> 0cd3f66e6ff0434e559c2cc841d5fd124385a22d
           
           {/* Main Content */}
           <div className="hero-main-content relative z-20 text-center max-w-6xl mx-auto">
@@ -177,22 +146,6 @@ export const HomePage = () => {
                   loading="lazy"
                 />
               </div>
-=======
-            {/* Main Title */}
-            <h1 className="hero-main-title hero-title font-poppins font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-[48px] leading-tight text-black mb-4 sm:mb-6 lg:mb-8 px-4">
-              Simplify Office Operations.<br />
-              Accelerate <span className="text-[#b30d02]">Business Success.</span>
-            </h1>
-            
-            {/* Subtitle */}
-            <p className="hero-main-subtitle hero-subtitle font-poppins font-normal text-sm sm:text-base md:text-lg lg:text-xl xl:text-[18px] leading-relaxed text-[#969696] mb-8 sm:mb-12 lg:mb-16 px-4 max-w-4xl mx-auto">
-              Manage visitors & leads, attendance & memberships, events, bookings & expenses - all in one platform.
-            </p>
-            
-            {/* Contact Form */}
-            <div className="hero-contact-form relative z-30 mb-8 lg:mb-16">
-              <ContactForm key="hero-contact-form" />
->>>>>>> 0cd3f66e6ff0434e559c2cc841d5fd124385a22d
             </div>
             
           </div>
