@@ -253,6 +253,7 @@ button {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+<<<<<<< HEAD
 }
 
 /* Hero Section Mobile Responsiveness */
@@ -428,4 +429,6 @@ button {
 
 .hero-contact-form {
   z-index: 30;
+=======
+>>>>>>> 0cd3f66e6ff0434e559c2cc841d5fd124385a22d
 }
