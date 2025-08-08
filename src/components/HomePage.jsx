@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Header } from "./Header";
-import { ContactForm } from "./ContactForm";
+import ContactForm from "./ContactForm";
+import MobileContactForm from "./MobileContactForm";
+import { DemoBookingForm } from "./DemoBookingForm";
+
 import { AboutUsSection } from "./AboutUsSection";
 import { FaqSection } from "./FaqSection";
 import { FeaturesSection } from "./FeaturesSection";
@@ -10,148 +13,200 @@ import { SubscriptionPlansSection } from "./SubscriptionPlansSection";
 import { TestimonialsSection } from "./TestimonialsSection";
 import ZohoSignPopup from "./ZohoSignPopup";
 
-// Hero section images
-import woman1 from "../assets/hero/woman1.png";
-import man1 from "../assets/hero/man1.png";
-import man2 from "../assets/hero/man2.png";
-import woman2 from "../assets/hero/woman2.png";
-
 // Service section images - removed for restart
 // import { Button } from "./Button"; // Unused for now
 
-// Decorative Images Component - Desktop Only Positioning
-const DecorativeImages = () => {
-  return (
-    <>
-      {/* Top Left Image - Group 45 (yellow bg) */}
-      <div className="hero-decorative-image hidden lg:block absolute top-[270px] left-[10px] w-[140px] h-[180px] transform -rotate-6 z-10">
-        <img 
-          src={woman1} 
-          alt="Professional woman" 
-          className="w-full h-full object-cover rounded-lg" 
-          loading="lazy"
-        />
-      </div>
-
-      {/* Top Right Image - Group 46 (pink bg) */}
-      <div className="hero-decorative-image hidden lg:block absolute top-[260px] right-[90px] w-[140px] h-[180px] transform rotate-8 z-10">
-        <img 
-          src={man2} 
-          alt="Professional man" 
-          className="w-full h-full object-cover rounded-lg" 
-          loading="lazy"
-        />
-      </div>
-
-      {/* Bottom Left Image - Group 47 (brown bg) */}
-      <div className="hero-decorative-image hidden lg:block absolute top-[550px] left-[80px] w-[200px] h-[280px] transform -rotate-15 z-10">
-        <img 
-          src={man1} 
-          alt="Professional man" 
-          className="w-full h-full object-cover rounded-lg" 
-          loading="lazy"
-        />
-      </div>
-
-      {/* Bottom Right Image - Group 48 (white bg) */}
-      <div className="hero-decorative-image hidden lg:block absolute top-[520px] right-[100px] w-[220px] h-[300px] transform rotate-15 z-10">
-        <img 
-          src={woman2} 
-          alt="Professional woman" 
-          className="w-full h-full object-cover rounded-lg" 
-          loading="lazy"
-        />
-      </div>
-    </>
-  );
-};
-
-
-
 export const HomePage = () => {
   const navigate = useNavigate();
+  const [isDemoModalOpen, setIsDemoModalOpen] = useState(false);
+
+  // Check for openDemo parameter in URL
+  useEffect(() => {
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('openDemo') === 'true') {
+      setIsDemoModalOpen(true);
+      // Clean up the URL
+      window.history.replaceState({}, document.title, window.location.pathname);
+    }
+    if (urlParams.get('scrollTo') === 'industries') {
+      // Clean up the URL first
+      window.history.replaceState({}, document.title, window.location.pathname);
+      // Scroll to services section after a short delay
+      setTimeout(() => {
+        document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' });
+      }, 100);
+    }
+  }, []);
 
   return (
     <div className="bg-[#FFECEA] w-full">
       <Header />
 
       {/* Hero Section - Responsive Layout */}
-      <section className="hero-section relative min-h-screen w-full overflow-hidden bg-[#FFECEA] flex flex-col justify-start items-center">
+      <section id="hero" className="hero-section relative w-full bg-[#FFECEA] flex items-center justify-center min-h-screen">
+        
+        {/* Contact Section ID for Navigation */}
+        <div id="contact" className="sr-only"></div>
+        
+        {/* Status Bar for Mobile (393px) */}
+        <div className="fixed top-0 left-0 right-0 z-50 bg-[#FFECEA] px-4 py-2 flex justify-between items-center md:hidden">
+          <span className="text-black font-medium text-sm">9:41</span>
+          <div className="flex items-center space-x-1">
+            <div className="w-4 h-2 bg-black rounded-sm"></div> {/* Signal */}
+            <div className="w-3 h-2 bg-black rounded-sm"></div> {/* WiFi */}
+            <div className="w-6 h-3 bg-black rounded-sm"></div> {/* Battery */}
+          </div>
+        </div>
         
         {/* Main Hero Container */}
-        <div className="relative z-10 w-full max-w-6xl mx-auto text-center px-4 sm:px-6 lg:px-8 pt-8 sm:pt-12 lg:pt-16">
+        <div className="hero-container relative w-full max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center pt-16 md:pt-0">
           
-          {/* Decorative Images - Desktop Only */}
-          <div className="decorative-images-container absolute inset-0 pointer-events-none hidden lg:block">
-            <DecorativeImages />
-          </div>
-
-          {/* Decorative Images - Mobile/Tablet Only */}
-          <div className="decorative-images-mobile absolute inset-0 pointer-events-none hidden sm:block md:hidden lg:hidden z-0">
-            {/* Top-left image - positioned to not overlap title */}
-            <img 
-              src={woman1} 
-              alt="Professional woman" 
-              className="absolute top-4 left-4 w-20 h-20 sm:w-24 sm:h-24 object-cover rounded-lg opacity-80" 
-              loading="lazy"
-            />
-            {/* Bottom-right image - positioned below form */}
-            <img 
-              src={woman2} 
-              alt="Professional woman" 
-              className="absolute bottom-4 right-4 w-20 h-20 sm:w-24 sm:h-24 object-cover rounded-lg opacity-80" 
-              loading="lazy"
-            />
-          </div>
-          
-          {/* Main Content */}
-          <div className="hero-main-content relative z-20 text-center max-w-6xl mx-auto">
+          {/* Mobile Layout (393px) - Single Column */}
+          <div className="w-full max-w-[393px] mx-auto md:hidden">
             
-
-            {/* Title section with reduced spacing */}
-            <div className="mb-4 sm:mb-6">
-              <h1 className="hero-main-title text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight text-black">
-                Simplify Office Operations.<br />
-                Accelerate <span className="text-[#b30d02]">Business Success.</span>
+            {/* Hero Image - Central, Prominent */}
+            <div className="hero-image-container mb-8 flex justify-center">
+              <img 
+                src={require("../assets/hero/new hero section image .png")}
+                alt="Four happy colleagues"
+                className="w-[280px] h-[280px] object-cover rounded-2xl"
+                loading="lazy"
+              />
+            </div>
+            
+            {/* Main Headline */}
+            <h1 className="hero-main-title font-poppins font-bold text-2xl leading-tight text-black mb-4 text-center">
+              Automate the Routine.<br />
+              Focus on <span className="text-[#B30D02]">Growth.</span>
+            </h1>
+            
+            {/* Subheadline */}
+            <p className="hero-subtitle font-poppins font-normal text-sm text-[#969696] mb-6 text-center leading-relaxed">
+              Manage visitors & leads, attendance & memberships, events, bookings & expenses - all in one platform.
+            </p>
+            
+            {/* Action Buttons - Side by Side, Equal Width */}
+            <div className="hero-buttons flex gap-3 mb-8">
+              <button 
+                onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                className="flex-1 bg-transparent text-[#B30D02] border-2 border-[#B30D02] font-poppins font-semibold px-4 py-3 rounded-xl hover:bg-[#B30D02] hover:text-white transition-all duration-300 text-sm"
+              >
+                Get Started
+              </button>
+              <button 
+                onClick={() => setIsDemoModalOpen(true)}
+                className="flex-1 bg-transparent text-[#B30D02] border-2 border-[#B30D02] font-poppins font-semibold px-4 py-3 rounded-xl hover:bg-[#B30D02] hover:text-white transition-all duration-300 text-sm flex items-center justify-center"
+              >
+                <span className="w-2 h-2 bg-[#B30D02] rounded-full mr-2"></span>
+                Book Demo
+              </button>
+            </div>
+            
+            {/* Mobile Contact Form */}
+            <div className="flex justify-center">
+              <MobileContactForm />
+            </div>
+          </div>
+          
+          {/* iPad Layout (768px-1280px) */}
+          <div className="hidden md:block xl:hidden w-full max-w-[1280px] mx-auto">
+            <div className="flex flex-col items-center text-center">
+              
+              {/* Hero Image - iPad Optimized */}
+              <div className="hero-image-container mb-8">
+                <img 
+                  src={require("../assets/hero/new hero section image .png")}
+                  alt="Four happy colleagues"
+                  className="w-[450px] h-auto object-cover rounded-2xl"
+                  loading="lazy"
+                />
+              </div>
+              
+              {/* Main Headline */}
+              <h1 className="hero-main-title font-poppins font-bold text-4xl leading-tight text-black mb-6 max-w-[600px]">
+                Automate the Routine.<br />
+                Focus on <span className="text-[#B30D02]">Growth.</span>
               </h1>
               
-              <p className="hero-main-subtitle text-sm sm:text-base lg:text-lg text-[#969696] max-w-2xl mx-auto mt-2 sm:mt-4 px-4 lg:px-0">
+              {/* Subheadline */}
+              <p className="hero-subtitle font-poppins font-normal text-lg text-[#969696] mb-8 max-w-[650px] leading-relaxed">
                 Manage visitors & leads, attendance & memberships, events, bookings & expenses - all in one platform.
               </p>
+              
+              {/* Action Buttons */}
+              <div className="hero-buttons flex gap-6 mb-8">
+                <button 
+                  onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                  className="bg-transparent text-[#B30D02] border-2 border-[#B30D02] font-poppins font-semibold px-8 py-4 rounded-xl hover:bg-[#B30D02] hover:text-white transition-all duration-300 text-lg"
+                >
+                  Get Started
+                </button>
+                <button 
+                  onClick={() => setIsDemoModalOpen(true)}
+                  className="bg-transparent text-[#B30D02] border-2 border-[#B30D02] font-poppins font-semibold px-8 py-4 rounded-xl hover:bg-[#B30D02] hover:text-white transition-all duration-300 text-lg flex items-center"
+                >
+                  <span className="w-2 h-2 bg-[#B30D02] rounded-full mr-2"></span>
+                  Book Live Demo
+                </button>
+              </div>
+              
+              {/* iPad Contact Form */}
+              <div className="flex justify-center">
+                <ContactForm key="ipad-contact-form" />
+              </div>
             </div>
+          </div>
+          
+          {/* Desktop Layout (1280px+) */}
+          <div className="hidden xl:flex w-full lg:flex-row items-center justify-between">
             
-            {/* Form with proper spacing */}
-            <div className="hero-contact-form relative z-20">
-              <ContactForm key="hero-contact-form" />
-            </div>
-            
-            {/* iPad Air Images - Under Form */}
-            <div className="ipad-air-images hidden md:flex lg:hidden justify-between items-center w-full max-w-4xl mx-auto mt-8 px-4 relative">
-              {/* Man1 - Right side */}
-              <div className="w-32 h-40 ipad-air-man1">
+            {/* Left Hero Content */}
+            <div className="left-hero-content w-full lg:w-1/2 flex flex-col items-center lg:items-start text-center lg:text-left mb-8 lg:mb-0">
+              
+              {/* Main Headline */}
+              <h1 className="hero-main-title font-poppins font-bold text-4xl lg:text-6xl leading-tight text-black mb-6 max-w-[558px]">
+                Automate the Routine.<br />
+                Focus on <span className="text-[#B30D02]">Growth.</span>
+              </h1>
+              
+              {/* Subheadline */}
+              <p className="hero-subtitle font-poppins font-normal text-lg lg:text-xl text-[#969696] mb-8 max-w-[550px] leading-relaxed">
+                Manage visitors & leads, attendance & memberships, events, bookings & expenses - all in one platform.
+              </p>
+              
+              {/* Hero Image - Larger for Tablet */}
+              <div className="hero-image-container mb-8">
                 <img 
-                  src={man1} 
-                  alt="Professional man" 
-                  className="w-full h-full object-cover rounded-lg" 
+                  src={require("../assets/hero/new hero section image .png")}
+                  alt="Four happy colleagues"
+                  className="w-[400px] lg:w-[500px] h-auto object-cover rounded-2xl"
                   loading="lazy"
                 />
               </div>
               
-              {/* Woman2 - Left side */}
-              <div className="w-32 h-40 ipad-air-woman2">
-                <img 
-                  src={woman2} 
-                  alt="Professional woman" 
-                  className="w-full h-full object-cover rounded-lg" 
-                  loading="lazy"
-                />
+              {/* Action Buttons */}
+              <div className="hero-buttons flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+                <button 
+                  onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                  className="get-started-btn bg-transparent text-[#B30D02] border-2 border-[#B30D02] font-poppins font-semibold px-8 py-3 rounded-xl hover:bg-[#B30D02] hover:text-white transition-all duration-300 h-12"
+                >
+                  Get Started
+                </button>
+                <button 
+                  onClick={() => setIsDemoModalOpen(true)}
+                  className="book-demo-btn bg-transparent text-[#B30D02] border-2 border-[#B30D02] font-poppins font-semibold px-8 py-3 rounded-xl hover:bg-[#B30D02] hover:text-white transition-all duration-300 h-12 flex items-center"
+                >
+                  <span className="w-2 h-2 bg-[#B30D02] rounded-full mr-2"></span>
+                  Book Live Demo
+                </button>
               </div>
             </div>
             
+            {/* Right Contact Form */}
+            <div className="right-contact-form w-full lg:w-1/2 flex justify-center lg:justify-end">
+              <ContactForm key="hero-contact-form" />
+            </div>
           </div>
-          
-
-          
         </div>
       </section>
 
@@ -279,8 +334,7 @@ export const HomePage = () => {
       {/* Zoho Sign Style Popup */}
       <ZohoSignPopup
         onBookDemo={() => {
-          console.log('Book Demo clicked!');
-          alert('Redirecting to demo booking page...');
+          setIsDemoModalOpen(true);
         }}
         onNeedAssistance={() => {
           console.log('Need Assistance clicked!');
@@ -289,6 +343,12 @@ export const HomePage = () => {
         autoTrigger={true}
         triggerInterval={{ min: 180000, max: 300000 }} // 3-5 minutes (180,000-300,000 ms)
         customTitle="Can't find what you are looking for?"
+      />
+
+      {/* Demo Booking Modal */}
+      <DemoBookingForm 
+        isOpen={isDemoModalOpen} 
+        onClose={() => setIsDemoModalOpen(false)} 
       />
     </div>
   );

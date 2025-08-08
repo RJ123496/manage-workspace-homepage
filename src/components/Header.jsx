@@ -11,6 +11,12 @@ export const Header = () => {
         top: 0,
         behavior: 'smooth'
       });
+    } else if (sectionId === 'contact') {
+      // Special case for contact - scroll to contact form
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
     } else {
       const element = document.getElementById(sectionId);
       if (element) {
@@ -52,10 +58,11 @@ export const Header = () => {
   const navItems = [
     { label: 'Home', sectionId: 'hero' },
     { label: 'Features', sectionId: 'features' },
-    { label: 'Services', sectionId: 'services' },
     { label: 'Subscription', sectionId: 'subscription' },
-    { label: 'FAQ', sectionId: 'faq' },
     { label: 'About', sectionId: 'about' },
+    { label: 'Industries', sectionId: 'industries' },
+    { label: 'FAQ', sectionId: 'faq' },
+    { label: 'Book Demo', sectionId: 'demo' },
     { label: 'Login', sectionId: 'contact' },
   ];
 

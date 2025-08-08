@@ -40,7 +40,7 @@ export const AboutUsSection = () => {
             {/* Buttons */}
             <div className="flex flex-row justify-center sm:justify-start gap-3 sm:gap-4 mt-6 lg:mt-8">
               <button 
-                onClick={() => document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })}
+                onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
                 className="w-[180px] h-[48px] border border-[#b30d02] text-[#b30d02] bg-transparent rounded-lg hover:bg-[#b30d02] hover:text-white transition-colors duration-300 flex items-center justify-center"
               >
                 Contact Us
