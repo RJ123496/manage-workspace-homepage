@@ -552,9 +552,9 @@ export const FeaturesPage = () => {
               <div>
                 <h4 className="font-semibold text-black mb-4">Features</h4>
                 <ul className="space-y-2 text-gray-600">
-                  <li><a href="#" className="hover:text-[#B30D02] transition-colors">Visitor Management</a></li>
-                  <li><a href="#" className="hover:text-[#B30D02] transition-colors">Space Booking</a></li>
-                  <li><a href="#" className="hover:text-[#B30D02] transition-colors">Analytics</a></li>
+                  <li><a href="/#features" className="hover:text-[#B30D02] transition-colors">Visitor Management</a></li>
+                  <li><a href="/#features" className="hover:text-[#B30D02] transition-colors">Space Booking</a></li>
+                  <li><a href="/#features" className="hover:text-[#B30D02] transition-colors">Analytics</a></li>
                 </ul>
               </div>
               <div>
@@ -568,17 +568,17 @@ export const FeaturesPage = () => {
               <div>
                 <h4 className="font-semibold text-black mb-4">News & Blogs</h4>
                 <ul className="space-y-2 text-gray-600">
-                  <li><a href="#" className="hover:text-[#B30D02] transition-colors">Latest Updates</a></li>
-                  <li><a href="#" className="hover:text-[#B30D02] transition-colors">Industry News</a></li>
-                  <li><a href="#" className="hover:text-[#B30D02] transition-colors">Tips & Tricks</a></li>
+                  <li><a href="/" className="hover:text-[#B30D02] transition-colors">Latest Updates</a></li>
+                  <li><a href="/" className="hover:text-[#B30D02] transition-colors">Industry News</a></li>
+                  <li><a href="/" className="hover:text-[#B30D02] transition-colors">Tips & Tricks</a></li>
                 </ul>
               </div>
               <div>
                 <h4 className="font-semibold text-black mb-4">About Us</h4>
                 <ul className="space-y-2 text-gray-600">
-                  <li><a href="#" className="hover:text-[#B30D02] transition-colors">Our Story</a></li>
-                  <li><a href="#" className="hover:text-[#B30D02] transition-colors">Team</a></li>
-                  <li><a href="#" className="hover:text-[#B30D02] transition-colors">Careers</a></li>
+                  <li><a href="/#about" className="hover:text-[#B30D02] transition-colors">Our Story</a></li>
+                  <li><a href="/#about" className="hover:text-[#B30D02] transition-colors">Team</a></li>
+                  <li><a href="/#about" className="hover:text-[#B30D02] transition-colors">Careers</a></li>
                 </ul>
               </div>
             </div>
@@ -591,9 +591,9 @@ export const FeaturesPage = () => {
             <div className="flex flex-col sm:flex-row justify-between items-center text-white text-sm">
               <p>©2022 Manage Workspace. All rights reserved.</p>
               <div className="flex space-x-6 mt-2 sm:mt-0">
-                <a href="#" className="hover:text-gray-200 transition-colors">Terms of Service</a>
-                <a href="#" className="hover:text-gray-200 transition-colors">Privacy Policy</a>
-                <a href="#" className="hover:text-gray-200 transition-colors">Cookies</a>
+                <a href="/" className="hover:text-gray-200 transition-colors">Terms of Service</a>
+                <a href="/" className="hover:text-gray-200 transition-colors">Privacy Policy</a>
+                <a href="/" className="hover:text-gray-200 transition-colors">Cookies</a>
               </div>
             </div>
           </div>
