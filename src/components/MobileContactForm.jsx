@@ -51,7 +51,7 @@ const MobileContactForm = () => {
     
     if (!formData.mobileNumber.trim()) {
       newErrors.mobileNumber = 'Mobile number is required';
-    } else if (!/^[\+]?[0-9\s\-\(\)]{10,}$/.test(formData.mobileNumber)) {
+    } else if (!/^[+]?[0-9\s\-()]{10,}$/.test(formData.mobileNumber)) {
       newErrors.mobileNumber = 'Please enter a valid mobile number';
     }
     
