@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 
-// Import feature images
 import communityIcon from "../assets/Community.png";
 import dashboardIcon from "../assets/Dashboard.png";
 import membershipPassIcon from "../assets/Membership Pass.png";

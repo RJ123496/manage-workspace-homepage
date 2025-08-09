@@ -31,7 +31,7 @@ const SupportAssistanceForm = () => {
       setIsSubmitting(false);
       setIsSubmitted(true);
       // Here you would typically send the data to your backend
-      console.log('Support request submitted:', formData);
+      // TODO: Implement actual support request submission
     }, 2000);
   };
 

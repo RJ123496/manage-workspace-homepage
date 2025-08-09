@@ -57,6 +57,11 @@ const ContactForm = () => {
         mobile: '',
         message: ''
       });
+      
+      // Auto-dismiss success message after 3 seconds
+      setTimeout(() => {
+        setSubmitStatus(null);
+      }, 3000);
     } catch (error) {
       setSubmitStatus('error');
     } finally {
@@ -70,9 +75,8 @@ const ContactForm = () => {
       <div 
         className="bg-white rounded-2xl p-12 shadow-lg"
         style={{ 
-          filter: 'drop-shadow(-2px 4px 4px rgba(0, 0, 0, 0.32))',
           width: '642px',
-          height: '696px'
+          height: '720px'
         }}
       >
         {/* Header */}
@@ -86,7 +90,7 @@ const ContactForm = () => {
         </div>
 
         {/* Form */}
-        <form onSubmit={handleSubmit} className="space-y-6">
+        <form onSubmit={handleSubmit} className="space-y-6 pb-8">
           {/* First Name & Last Name Row */}
           <div className="flex gap-4">
             <div className="flex-1">
@@ -157,28 +161,30 @@ const ContactForm = () => {
           </div>
 
           {/* Submit Button */}
-          <button
-            type="submit"
-            disabled={isSubmitting}
-            className="w-full bg-red-700 hover:bg-red-800 disabled:opacity-70 text-white font-poppins text-xl rounded-lg transition-colors duration-200"
-            style={{ 
-              height: '62px',
-              backgroundColor: '#B30D02'
-            }}
-          >
-            {isSubmitting ? 'Submitting...' : 'Submit'}
-          </button>
+          <div className="space-y-4">
+            <button
+              type="submit"
+              disabled={isSubmitting}
+              className="w-full bg-red-700 hover:bg-red-800 disabled:opacity-70 text-white font-poppins text-xl rounded-lg transition-colors duration-200"
+              style={{ 
+                height: '62px',
+                backgroundColor: '#B30D02'
+              }}
+            >
+              {isSubmitting ? 'Submitting...' : 'Submit'}
+            </button>
+          </div>
 
           {/* Status Messages */}
           {submitStatus === 'success' && (
-            <div className="text-green-600 text-center font-poppins">
-              Thank you! Your message has been sent successfully.
+            <div className="absolute -bottom-16 left-1/2 transform -translate-x-1/2 text-green-600 text-center font-poppins text-sm font-medium px-4 py-2 bg-green-100 rounded-md shadow-sm border border-green-200">
+              ✓ Thank you! Your message has been sent successfully.
             </div>
           )}
           
           {submitStatus === 'error' && (
-            <div className="text-red-600 text-center font-poppins">
-              Please fill out all fields correctly.
+            <div className="absolute -bottom-16 left-1/2 transform -translate-x-1/2 text-red-600 text-center font-poppins text-sm font-medium px-4 py-2 bg-red-100 rounded-md shadow-sm border border-red-200">
+              ✗ Please fill out all fields correctly.
             </div>
           )}
         </form>

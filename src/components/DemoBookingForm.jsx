@@ -23,7 +23,7 @@ export const DemoBookingForm = ({ isOpen, onClose }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     // Handle form submission here
-    console.log("Demo booking submitted:", formData);
+    // TODO: Implement actual demo booking submission
     // You can add API call here
     alert("Thank you! We'll contact you soon to confirm your demo booking.");
     onClose();
@@ -42,25 +42,25 @@ export const DemoBookingForm = ({ isOpen, onClose }) => {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
-      <div className="bg-white rounded-2xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-2 sm:p-4 md:p-6">
+      <div className="bg-white rounded-xl sm:rounded-2xl shadow-2xl w-full max-w-[95vw] sm:max-w-[90vw] md:max-w-[85vw] lg:max-w-[800px] max-h-[85vh] sm:max-h-[80vh] md:max-h-[75vh] overflow-y-auto">
         {/* Header */}
-        <div className="flex justify-between items-center p-6 border-b border-gray-200">
-          <h2 className="text-2xl font-bold text-[#b30d02]">Book Live Demo</h2>
+        <div className="flex justify-between items-center p-4 sm:p-5 md:p-6 border-b border-gray-200">
+          <h2 className="text-xl sm:text-2xl font-bold text-[#b30d02]">Book Live Demo</h2>
           <button
             onClick={onClose}
-            className="text-gray-500 hover:text-gray-700 text-2xl font-bold"
+            className="text-gray-500 hover:text-gray-700 text-xl sm:text-2xl font-bold"
           >
             ×
           </button>
         </div>
 
         {/* Form */}
-        <form onSubmit={handleSubmit} className="p-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+        <form onSubmit={handleSubmit} className="p-4 sm:p-5 md:p-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4 mb-4 sm:mb-6">
             {/* Name */}
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="block text-sm font-medium text-gray-700 mb-1 sm:mb-2">
                 Full Name *
               </label>
               <input
@@ -69,14 +69,14 @@ export const DemoBookingForm = ({ isOpen, onClose }) => {
                 value={formData.name}
                 onChange={handleInputChange}
                 required
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#b30d02] focus:border-transparent"
+                className="w-full px-3 sm:px-4 py-2.5 sm:py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#b30d02] focus:border-transparent text-sm sm:text-base"
                 placeholder="Enter your full name"
               />
             </div>
 
             {/* Email */}
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="block text-sm font-medium text-gray-700 mb-1 sm:mb-2">
                 Email Address *
               </label>
               <input
@@ -85,14 +85,14 @@ export const DemoBookingForm = ({ isOpen, onClose }) => {
                 value={formData.email}
                 onChange={handleInputChange}
                 required
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#b30d02] focus:border-transparent"
+                className="w-full px-3 sm:px-4 py-2.5 sm:py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#b30d02] focus:border-transparent text-sm sm:text-base"
                 placeholder="Enter your email"
               />
             </div>
 
             {/* Company */}
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="block text-sm font-medium text-gray-700 mb-1 sm:mb-2">
                 Company Name
               </label>
               <input
@@ -100,14 +100,14 @@ export const DemoBookingForm = ({ isOpen, onClose }) => {
                 name="company"
                 value={formData.company}
                 onChange={handleInputChange}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#b30d02] focus:border-transparent"
+                className="w-full px-3 sm:px-4 py-2.5 sm:py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#b30d02] focus:border-transparent text-sm sm:text-base"
                 placeholder="Enter your company name"
               />
             </div>
 
             {/* Phone */}
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="block text-sm font-medium text-gray-700 mb-1 sm:mb-2">
                 Phone Number
               </label>
               <input
@@ -115,14 +115,14 @@ export const DemoBookingForm = ({ isOpen, onClose }) => {
                 name="phone"
                 value={formData.phone}
                 onChange={handleInputChange}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#b30d02] focus:border-transparent"
+                className="w-full px-3 sm:px-4 py-2.5 sm:py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#b30d02] focus:border-transparent text-sm sm:text-base"
                 placeholder="Enter your phone number"
               />
             </div>
 
             {/* Preferred Date */}
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="block text-sm font-medium text-gray-700 mb-1 sm:mb-2">
                 Preferred Date *
               </label>
               <input
@@ -131,13 +131,13 @@ export const DemoBookingForm = ({ isOpen, onClose }) => {
                 value={formData.preferredDate}
                 onChange={handleInputChange}
                 required
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#b30d02] focus:border-transparent"
+                className="w-full px-3 sm:px-4 py-2.5 sm:py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#b30d02] focus:border-transparent text-sm sm:text-base"
               />
             </div>
 
             {/* Preferred Time */}
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="block text-sm font-medium text-gray-700 mb-1 sm:mb-2">
                 Preferred Time *
               </label>
               <select
@@ -145,7 +145,7 @@ export const DemoBookingForm = ({ isOpen, onClose }) => {
                 value={formData.preferredTime}
                 onChange={handleInputChange}
                 required
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#b30d02] focus:border-transparent"
+                className="w-full px-3 sm:px-4 py-2.5 sm:py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#b30d02] focus:border-transparent text-sm sm:text-base"
               >
                 <option value="">Select a time</option>
                 <option value="09:00">9:00 AM</option>

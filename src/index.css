@@ -16,6 +16,8 @@ body {
   font-family: 'Poppins', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 /* Custom font families for specific design requirements */
@@ -55,27 +57,47 @@ body {
   animation: fadeIn 0.3s ease-out;
 }
 
+/* Backdrop filter support for Safari */
+.backdrop-blur-sm {
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+}
+
+.backdrop-blur {
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+}
+
+.backdrop-blur-md {
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+}
+
+.backdrop-blur-lg {
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+}
+
+.backdrop-blur-xl {
+  -webkit-backdrop-filter: blur(24px);
+  backdrop-filter: blur(24px);
+}
+
+.backdrop-blur-2xl {
+  -webkit-backdrop-filter: blur(40px);
+  backdrop-filter: blur(40px);
+}
+
+.backdrop-blur-3xl {
+  -webkit-backdrop-filter: blur(64px);
+  backdrop-filter: blur(64px);
+}
+
 /* Smooth scrolling for the entire page */
 html {
   scroll-behavior: smooth;
-}
-
-/* Custom scrollbar styling */
-::-webkit-scrollbar {
-  width: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: #f1f1f1;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #b30d02;
-  border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #8b0a01;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 /* Hide scrollbar for horizontal carousel */
@@ -186,9 +208,17 @@ body {
   }
 }
 
-/* Smooth scrolling for anchor links */
-html {
-  scroll-behavior: smooth;
+/* Fix modal centering for all devices */
+.fixed.inset-0.flex.items-center.justify-center {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+/* Ensure modal content is properly centered */
+.fixed.inset-0.flex.items-center.justify-center > div {
+  margin: auto;
+  display: block;
 }
 
 /* Custom scrollbar for webkit browsers */
@@ -209,10 +239,7 @@ html {
   background: #8b0a01;
 }
 
-/* Ensure proper box-sizing */
-* {
-  box-sizing: border-box;
-}
+
 
 /* Better touch targets for all interactive elements */
 @media (max-width: 1023px) {
@@ -245,6 +272,48 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+/* Additional browser compatibility fixes */
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* Smooth transitions for better browser support */
+.transition-all {
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+/* Transform support for older browsers */
+.transform {
+  -webkit-transform: translateZ(0);
+  -moz-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  -o-transform: translateZ(0);
+  transform: translateZ(0);
+}
+
+/* Flexbox support for older browsers */
+.flex {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+/* Grid support for older browsers */
+.grid {
+  display: -ms-grid;
+  display: grid;
 }
 
 /* Prevent text selection on buttons */
@@ -706,5 +775,54 @@ button {
     padding: 8px 12px !important;
     font-size: 13px !important;
     height: 40px !important;
+  }
+}
+
+/* Mobile Contact Form Specific Styles */
+@media (max-width: 768px) {
+  /* Ensure mobile form is always visible and properly styled */
+  .mobile-contact-form {
+    display: block !important;
+    width: 100% !important;
+    max-width: 320px !important;
+    margin: 0 auto !important;
+  }
+  
+  /* Mobile form input improvements */
+  .mobile-contact-form input {
+    font-size: 16px !important; /* Prevents zoom on iOS */
+    min-height: 44px !important; /* Better touch target */
+  }
+  
+  /* Mobile form button improvements */
+  .mobile-contact-form button {
+    min-height: 44px !important;
+    font-size: 16px !important;
+  }
+  
+  /* Mobile form error messages */
+  .mobile-contact-form .error-message {
+    font-size: 12px !important;
+    margin-top: 4px !important;
+  }
+  
+  /* Mobile form success/error status */
+  .mobile-contact-form .status-message {
+    font-size: 14px !important;
+    padding: 12px !important;
+    margin-top: 16px !important;
+  }
+}
+
+/* Ensure mobile form works on very small screens */
+@media (max-width: 375px) {
+  .mobile-contact-form {
+    max-width: 300px !important;
+    padding: 16px !important;
+  }
+  
+  .mobile-contact-form input {
+    font-size: 16px !important;
+    padding: 12px !important;
   }
 }

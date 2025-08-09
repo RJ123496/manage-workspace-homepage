@@ -14,13 +14,12 @@ import { TestimonialsSection } from "./TestimonialsSection";
 import ZohoSignPopup from "./ZohoSignPopup";
 
 // Service section images - removed for restart
-// import { Button } from "./Button"; // Unused for now
 
 export const HomePage = () => {
   const navigate = useNavigate();
   const [isDemoModalOpen, setIsDemoModalOpen] = useState(false);
 
-  // Check for openDemo parameter in URL
+  // Check for openDemo parameter in URL and hash navigation
   useEffect(() => {
     const urlParams = new URLSearchParams(window.location.search);
     if (urlParams.get('openDemo') === 'true') {
@@ -36,11 +35,43 @@ export const HomePage = () => {
         document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' });
       }, 100);
     }
+    
+    // Handle hash navigation (e.g., /#features, /#about, etc.)
+    const hash = window.location.hash;
+    if (hash) {
+      const sectionId = hash.substring(1); // Remove the # symbol
+      // Wait for the page to fully load, then scroll to the section
+      setTimeout(() => {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }, 500); // Increased delay to ensure page is fully rendered
+    }
+  }, []);
+
+  // Listen for hash changes
+  useEffect(() => {
+    const handleHashChange = () => {
+      const hash = window.location.hash;
+      if (hash) {
+        const sectionId = hash.substring(1);
+        setTimeout(() => {
+          const element = document.getElementById(sectionId);
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        }, 100);
+      }
+    };
+
+    window.addEventListener('hashchange', handleHashChange);
+    return () => window.removeEventListener('hashchange', handleHashChange);
   }, []);
 
   return (
     <div className="bg-[#FFECEA] w-full">
-      <Header />
+      <Header onBookLiveClick={() => setIsDemoModalOpen(true)} />
 
       {/* Hero Section - Responsive Layout */}
       <section id="hero" className="hero-section relative w-full bg-[#FFECEA] flex items-center justify-center min-h-screen">
@@ -337,11 +368,11 @@ export const HomePage = () => {
           setIsDemoModalOpen(true);
         }}
         onNeedAssistance={() => {
-          console.log('Need Assistance clicked!');
+          // TODO: Implement support chat functionality
           alert('Opening support chat...');
         }}
         autoTrigger={true}
-        triggerInterval={{ min: 180000, max: 300000 }} // 3-5 minutes (180,000-300,000 ms)
+        triggerInterval={{ min: 5000, max: 10000 }} // 5-10 seconds for testing (was 3-5 minutes)
         customTitle="Can't find what you are looking for?"
       />
 

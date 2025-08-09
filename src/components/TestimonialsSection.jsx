@@ -26,13 +26,13 @@ export const TestimonialsSection = () => {
             <img
               src={clientsGallery}
               alt="Our clients and business showcase"
-              className="w-full max-w-[95vw] sm:max-w-[1000px] lg:max-w-[1230px] h-auto max-h-[400px] sm:max-h-[400px] lg:max-h-[474px] object-contain rounded-xl hover:scale-105 hover:shadow-xl transition-all duration-300 cursor-pointer"
+              className="w-[1230px] h-[474px] object-contain rounded-xl"
             />
           </div>
 
           {/* Testimonials Cards */}
           <div className="w-full flex justify-center">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-2 sm:gap-6 lg:gap-8 justify-center">
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-2 sm:gap-6 lg:gap-8 justify-center">
               <div className="w-full max-w-[240px] sm:max-w-[320px] lg:max-w-[398px] h-[140px] sm:h-[220px] lg:h-[260px] border border-gray-200 rounded-lg overflow-hidden hover:scale-105 hover:shadow-xl transition-all duration-300 cursor-pointer">
                 <img
                   src={client1}
@@ -47,7 +47,7 @@ export const TestimonialsSection = () => {
                   className="w-full h-full object-contain"
                 />
               </div>
-              <div className="w-full max-w-[240px] sm:max-w-[320px] lg:max-w-[398px] h-[140px] sm:h-[220px] lg:h-[260px] border border-gray-200 rounded-lg overflow-hidden hover:scale-105 hover:shadow-xl transition-all duration-300 cursor-pointer">
+              <div className="hidden md:block w-full max-w-[240px] sm:max-w-[320px] lg:max-w-[398px] h-[140px] sm:h-[220px] lg:h-[260px] border border-gray-200 rounded-lg overflow-hidden hover:scale-105 hover:shadow-xl transition-all duration-300 cursor-pointer">
                 <img
                   src={client3}
                   alt="Testimonial 3"

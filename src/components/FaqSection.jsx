@@ -34,18 +34,18 @@ export const FaqSection = () => {
   };
 
   return (
-    <section className="py-8 sm:py-12 lg:py-20 px-4 sm:px-6 bg-[#FFECEA]">
-      <div className="max-w-[1440px] mx-auto">
+    <section className="py-8 sm:py-12 lg:py-20 px-0 bg-[#FFECEA]">
+      <div className="w-full">
         {/* FAQ Image */}
-        <div className="w-full h-[400px] sm:h-[500px] lg:h-[700px] mb-8 sm:mb-12 lg:mb-16 overflow-hidden rounded-lg">
+        <div className="w-[200%] -ml-[50%] h-[250px] sm:h-[300px] lg:h-[400px] mb-8 sm:mb-12 lg:mb-16 overflow-hidden">
           <img
             src={faqImage}
             alt="FAQ - Frequently Asked Questions"
-            className="w-full h-full object-cover"
+            className="w-full h-full object-contain"
           />
         </div>
 
-        <div className="max-w-[1000px] mx-auto">
+        <div className="max-w-[1000px] mx-auto px-4 sm:px-6">
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-800 mb-4 sm:mb-6 lg:mb-8 text-center">
             Frequently Asked Queries
           </h2>

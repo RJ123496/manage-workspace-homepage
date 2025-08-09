@@ -1,11 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import logo from '../assets/New transparent logo.png';
 
-export const Header = () => {
+export const Header = ({ onBookLiveClick }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const scrollToSection = (sectionId) => {
-    // Special case for home - scroll to very top
+    // Check if we're on the home page
+    const isHomePage = window.location.pathname === '/';
+    
+    // If not on home page, navigate to home page with section anchor
+    if (!isHomePage) {
+      window.location.href = `/#${sectionId}`;
+      return;
+    }
+    
+    // If on home page, scroll to section
     if (sectionId === 'hero' || sectionId === 'home') {
       window.scrollTo({
         top: 0,
@@ -17,6 +26,15 @@ export const Header = () => {
         top: 0,
         behavior: 'smooth'
       });
+    } else if (sectionId === 'services') {
+      // Special case for services/industries section
+      const element = document.getElementById('services');
+      if (element) {
+        element.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start',
+        });
+      }
     } else {
       const element = document.getElementById(sectionId);
       if (element) {
@@ -27,6 +45,13 @@ export const Header = () => {
       }
     }
     setIsMobileMenuOpen(false); // Close mobile menu after clicking
+  };
+
+  const handleBookLiveClick = () => {
+    if (onBookLiveClick) {
+      onBookLiveClick();
+    }
+    setIsMobileMenuOpen(false);
   };
 
   // Close mobile menu on escape key and manage body scroll
@@ -60,9 +85,9 @@ export const Header = () => {
     { label: 'Features', sectionId: 'features' },
     { label: 'Subscription', sectionId: 'subscription' },
     { label: 'About', sectionId: 'about' },
-    { label: 'Industries', sectionId: 'industries' },
+    { label: 'Industries', sectionId: 'services' },
     { label: 'FAQ', sectionId: 'faq' },
-    { label: 'Book Demo', sectionId: 'demo' },
+    { label: 'Book Demo', action: 'bookLive' },
     { label: 'Login', sectionId: 'contact' },
   ];
 
@@ -71,7 +96,14 @@ export const Header = () => {
       <nav className="max-w-[1440px] mx-auto px-4 sm:px-6 py-3 sm:py-4">
         <div className="flex justify-between items-center">
           {/* Logo */}
-          <div className="flex items-center cursor-pointer" onClick={() => scrollToSection('hero')}>
+          <div className="flex items-center cursor-pointer" onClick={() => {
+            const isHomePage = window.location.pathname === '/';
+            if (isHomePage) {
+              scrollToSection('hero');
+            } else {
+              window.location.href = '/';
+            }
+          }}>
             <img 
               src={logo} 
               alt="Manage Workspace Logo" 
@@ -84,7 +116,13 @@ export const Header = () => {
             {navItems.map((item, index) => (
               <button
                 key={index}
-                onClick={() => scrollToSection(item.sectionId)}
+                onClick={() => {
+                  if (item.action === 'bookLive') {
+                    handleBookLiveClick();
+                  } else {
+                    scrollToSection(item.sectionId);
+                  }
+                }}
                 className="text-gray-600 hover:text-[#b30d02] font-medium transition-colors duration-200 relative group"
               >
                 {item.label}
@@ -96,7 +134,14 @@ export const Header = () => {
           {/* Desktop CTA Button */}
           <div className="hidden lg:block">
             <button
-              onClick={() => scrollToSection('contact')}
+              onClick={() => {
+                const isHomePage = window.location.pathname === '/';
+                if (isHomePage) {
+                  scrollToSection('contact');
+                } else {
+                  window.location.href = '/#contact';
+                }
+              }}
               className="bg-[#b30d02] text-white px-6 py-2.5 rounded-lg font-medium hover:bg-red-700 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
             >
               Contact Us
@@ -132,14 +177,27 @@ export const Header = () => {
               {navItems.map((item, index) => (
                 <button
                   key={index}
-                  onClick={() => scrollToSection(item.sectionId)}
+                  onClick={() => {
+                    if (item.action === 'bookLive') {
+                      handleBookLiveClick();
+                    } else {
+                      scrollToSection(item.sectionId);
+                    }
+                  }}
                   className="text-gray-600 hover:text-[#b30d02] font-medium py-3 px-4 rounded-lg hover:bg-gray-100 transition-colors text-left min-h-[44px] border-b border-gray-100"
                 >
                   {item.label}
                 </button>
               ))}
               <button
-                onClick={() => scrollToSection('contact')}
+                onClick={() => {
+                  const isHomePage = window.location.pathname === '/';
+                  if (isHomePage) {
+                    scrollToSection('contact');
+                  } else {
+                    window.location.href = '/#contact';
+                  }
+                }}
                 className="bg-[#b30d02] text-white px-6 py-3 rounded-lg font-medium hover:bg-red-700 transition-all duration-200 text-center mt-2 min-h-[44px] shadow-lg hover:shadow-xl"
               >
                 Contact Us

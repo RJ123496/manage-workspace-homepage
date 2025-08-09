@@ -117,7 +117,7 @@ export const FooterSection = () => {
                 className="hover:text-gray-200 transition-colors cursor-pointer text-center"
                 onClick={() => {
                   // Placeholder for future legal page navigation
-                  console.log(`Navigate to ${link.text}`);
+                  // TODO: Implement actual navigation
                 }}
               >
                 {link.text}
