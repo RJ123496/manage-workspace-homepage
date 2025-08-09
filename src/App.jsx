@@ -7,7 +7,7 @@ import './index.css';
 function App() {
   return (
     <Router>
-      <div className="App">
+      <div className="App w-full overflow-x-hidden">
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/features" element={<FeaturesPage />} />

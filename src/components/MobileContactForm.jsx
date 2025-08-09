@@ -2,9 +2,11 @@ import React, { useState } from 'react';
 
 const MobileContactForm = () => {
   const [formData, setFormData] = useState({
-    fullName: '',
-    mobileNo: '',
-    companyEmail: ''
+    personName: '',
+    coworkingSpaceName: '',
+    numberOfLocations: '',
+    mobileNumber: '',
+    emailId: ''
   });
   
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -30,20 +32,33 @@ const MobileContactForm = () => {
   const validateForm = () => {
     const newErrors = {};
     
-    if (!formData.fullName.trim()) {
-      newErrors.fullName = 'Full name is required';
+    if (!formData.personName.trim()) {
+      newErrors.personName = 'Person name is required';
     }
     
-    if (!formData.mobileNo.trim()) {
-      newErrors.mobileNo = 'Mobile number is required';
-    } else if (!/^[+]?[1-9][\d]{0,15}$/.test(formData.mobileNo.replace(/\s/g, ''))) {
-      newErrors.mobileNo = 'Please enter a valid mobile number';
+    if (!formData.coworkingSpaceName.trim()) {
+      newErrors.coworkingSpaceName = 'Coworking space name is required';
     }
     
-    if (!formData.companyEmail.trim()) {
-      newErrors.companyEmail = 'Company email is required';
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.companyEmail)) {
-      newErrors.companyEmail = 'Please enter a valid email address';
+    if (!formData.numberOfLocations.trim()) {
+      newErrors.numberOfLocations = 'Number of locations is required';
+    } else {
+      const numLocations = parseInt(formData.numberOfLocations);
+      if (isNaN(numLocations) || numLocations < 1) {
+        newErrors.numberOfLocations = 'Please enter a valid number (1 or more)';
+      }
+    }
+    
+    if (!formData.mobileNumber.trim()) {
+      newErrors.mobileNumber = 'Mobile number is required';
+    } else if (!/^[\+]?[0-9\s\-\(\)]{10,}$/.test(formData.mobileNumber)) {
+      newErrors.mobileNumber = 'Please enter a valid mobile number';
+    }
+    
+    if (!formData.emailId.trim()) {
+      newErrors.emailId = 'Email is required';
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.emailId)) {
+      newErrors.emailId = 'Please enter a valid email address';
     }
     
     setErrors(newErrors);
@@ -67,9 +82,11 @@ const MobileContactForm = () => {
       // Success
       setSubmitStatus('success');
       setFormData({
-        fullName: '',
-        mobileNo: '',
-        companyEmail: ''
+        personName: '',
+        coworkingSpaceName: '',
+        numberOfLocations: '',
+        mobileNumber: '',
+        emailId: ''
       });
       
       // Auto-dismiss success message after 3 seconds
@@ -88,10 +105,7 @@ const MobileContactForm = () => {
     <div className="w-full max-w-[320px] mx-auto mobile-contact-form">
       {/* Form Container - White card with subtle shadow, rounded corners */}
       <div 
-        className="bg-white rounded-2xl p-6 shadow-lg"
-        style={{
-          filter: 'drop-shadow(0px 2px 8px rgba(0, 0, 0, 0.1))'
-        }}
+        className="bg-white rounded-2xl p-6"
       >
         {/* Form Title */}
         <div className="text-center mb-4">
@@ -126,23 +140,23 @@ const MobileContactForm = () => {
 
         {/* Form */}
         <form onSubmit={handleSubmit} className="space-y-4">
-          {/* First Row - Full Name and Mobile No */}
+          {/* First Row - Person Name and Coworking Space Name */}
           <div className="flex gap-3">
-            {/* Full Name Input */}
+            {/* Person Name Input */}
             <div className="flex-1">
               <input
                 type="text"
-                name="fullName"
-                placeholder="Full Name"
-                value={formData.fullName}
+                name="personName"
+                placeholder="Person Name"
+                value={formData.personName}
                 onChange={handleInputChange}
                 className={`w-full border rounded-xl px-3 py-3 text-gray-600 placeholder-gray-400 focus:outline-none focus:ring-1 transition-colors ${
-                  errors.fullName 
+                  errors.personName 
                     ? 'border-red-500 focus:border-red-600 focus:ring-red-600' 
                     : 'border-gray-300 focus:border-red-600 focus:ring-red-600'
                 }`}
                 style={{
-                  height: '44px',
+                  height: '40px',
                   fontFamily: 'Poppins, sans-serif',
                   fontSize: '14px',
                   lineHeight: '20px',
@@ -150,26 +164,26 @@ const MobileContactForm = () => {
                 }}
                 required
               />
-              {errors.fullName && (
-                <p className="text-red-500 text-xs mt-1 ml-1 error-message">{errors.fullName}</p>
+              {errors.personName && (
+                <p className="text-red-500 text-xs mt-1 ml-1 error-message">{errors.personName}</p>
               )}
             </div>
 
-            {/* Mobile No Input */}
+            {/* Coworking Space Name Input */}
             <div className="flex-1">
               <input
-                type="tel"
-                name="mobileNo"
-                placeholder="Mobile No"
-                value={formData.mobileNo}
+                type="text"
+                name="coworkingSpaceName"
+                placeholder="Coworking Space Name"
+                value={formData.coworkingSpaceName}
                 onChange={handleInputChange}
                 className={`w-full border rounded-xl px-3 py-3 text-gray-600 placeholder-gray-400 focus:outline-none focus:ring-1 transition-colors ${
-                  errors.mobileNo 
+                  errors.coworkingSpaceName 
                     ? 'border-red-500 focus:border-red-600 focus:ring-red-600' 
                     : 'border-gray-300 focus:border-red-600 focus:ring-red-600'
                 }`}
                 style={{
-                  height: '44px',
+                  height: '40px',
                   fontFamily: 'Poppins, sans-serif',
                   fontSize: '14px',
                   lineHeight: '20px',
@@ -177,27 +191,84 @@ const MobileContactForm = () => {
                 }}
                 required
               />
-              {errors.mobileNo && (
-                <p className="text-red-500 text-xs mt-1 ml-1 error-message">{errors.mobileNo}</p>
+              {errors.coworkingSpaceName && (
+                <p className="text-red-500 text-xs mt-1 ml-1 error-message">{errors.coworkingSpaceName}</p>
               )}
             </div>
           </div>
 
-          {/* Company Email Input */}
+          {/* Second Row - Number of Locations and Mobile Number */}
+          <div className="flex gap-3">
+            {/* Number of Locations Input */}
+            <div className="flex-1">
+              <input
+                type="number"
+                name="numberOfLocations"
+                placeholder="Number of Locations"
+                value={formData.numberOfLocations}
+                onChange={handleInputChange}
+                className={`w-full border rounded-xl px-3 py-3 text-gray-600 placeholder-gray-400 focus:outline-none focus:ring-1 transition-colors ${
+                  errors.numberOfLocations 
+                    ? 'border-red-500 focus:border-red-600 focus:ring-red-600' 
+                    : 'border-gray-300 focus:border-red-600 focus:ring-red-600'
+                }`}
+                style={{
+                  height: '40px',
+                  fontFamily: 'Poppins, sans-serif',
+                  fontSize: '14px',
+                  lineHeight: '20px',
+                  fontWeight: 400
+                }}
+                required
+              />
+              {errors.numberOfLocations && (
+                <p className="text-red-500 text-xs mt-1 ml-1 error-message">{errors.numberOfLocations}</p>
+              )}
+            </div>
+
+            {/* Mobile Number Input */}
+            <div className="flex-1">
+              <input
+                type="tel"
+                name="mobileNumber"
+                placeholder="Mobile Number"
+                value={formData.mobileNumber}
+                onChange={handleInputChange}
+                className={`w-full border rounded-xl px-3 py-3 text-gray-600 placeholder-gray-400 focus:outline-none focus:ring-1 transition-colors ${
+                  errors.mobileNumber 
+                    ? 'border-red-500 focus:border-red-600 focus:ring-red-600' 
+                    : 'border-gray-300 focus:border-red-600 focus:ring-red-600'
+                }`}
+                style={{
+                  height: '40px',
+                  fontFamily: 'Poppins, sans-serif',
+                  fontSize: '14px',
+                  lineHeight: '20px',
+                  fontWeight: 400
+                }}
+                required
+              />
+              {errors.mobileNumber && (
+                <p className="text-red-500 text-xs mt-1 ml-1 error-message">{errors.mobileNumber}</p>
+              )}
+            </div>
+          </div>
+
+          {/* Email Input */}
           <div>
             <input
               type="email"
-              name="companyEmail"
-              placeholder="Company mail ID"
-              value={formData.companyEmail}
+              name="emailId"
+              placeholder="Email ID"
+              value={formData.emailId}
               onChange={handleInputChange}
               className={`w-full border rounded-xl px-3 py-3 text-gray-600 placeholder-gray-400 focus:outline-none focus:ring-1 transition-colors ${
-                errors.companyEmail 
+                errors.emailId 
                   ? 'border-red-500 focus:border-red-600 focus:ring-red-600' 
                   : 'border-gray-300 focus:border-red-600 focus:ring-red-600'
               }`}
               style={{
-                height: '44px',
+                height: '40px',
                 fontFamily: 'Poppins, sans-serif',
                 fontSize: '14px',
                 lineHeight: '20px',
@@ -205,19 +276,19 @@ const MobileContactForm = () => {
               }}
               required
             />
-            {errors.companyEmail && (
-              <p className="text-red-500 text-xs mt-1 ml-1 error-message">{errors.companyEmail}</p>
+            {errors.emailId && (
+              <p className="text-red-500 text-xs mt-1 ml-1 error-message">{errors.emailId}</p>
             )}
           </div>
 
           {/* Submit Button */}
-          <div className="pt-2">
+          <div className="pt-2 mt-5">
             <button
               type="submit"
               disabled={isSubmitting}
               className="w-full text-white rounded-xl font-medium transition-all duration-200 disabled:opacity-70 disabled:cursor-not-allowed"
               style={{
-                height: '44px',
+                height: '40px',
                 backgroundColor: '#B30D02',
                 fontFamily: 'Poppins, sans-serif',
                 fontSize: '16px',

@@ -142,6 +142,38 @@ body {
   overflow-x: hidden;
 }
 
+/* Prevent horizontal scroll on all elements */
+* {
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* Ensure containers don't overflow */
+.container-responsive,
+.hero-container,
+.max-w-\[1440px\],
+.max-w-\[1280px\],
+.max-w-\[1200px\],
+.max-w-\[1000px\] {
+  overflow-x: hidden;
+}
+
+/* Prevent any element from causing horizontal scroll */
+img,
+video,
+iframe,
+svg {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Ensure flex containers don't overflow */
+.flex,
+.grid {
+  min-width: 0;
+  max-width: 100%;
+}
+
 /* Better touch scrolling */
 .touch-scroll {
   -webkit-overflow-scrolling: touch;

@@ -22,11 +22,11 @@ export const TestimonialsSection = () => {
         {/* Main content layout */}
         <div className="flex flex-col gap-3 sm:gap-8 lg:gap-12">
           {/* Top - Client images gallery */}
-          <div className="w-full flex justify-center">
+          <div className="w-full flex justify-center overflow-hidden">
             <img
               src={clientsGallery}
               alt="Our clients and business showcase"
-              className="w-[1230px] h-[474px] object-contain rounded-xl"
+              className="w-full max-w-[1230px] h-auto max-h-[474px] object-contain rounded-xl"
             />
           </div>
 

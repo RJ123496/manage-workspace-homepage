@@ -37,7 +37,7 @@ export const FaqSection = () => {
     <section className="py-8 sm:py-12 lg:py-20 px-0 bg-[#FFECEA]">
       <div className="w-full">
         {/* FAQ Image */}
-        <div className="w-[200%] -ml-[50%] h-[250px] sm:h-[300px] lg:h-[400px] mb-8 sm:mb-12 lg:mb-16 overflow-hidden">
+        <div className="w-full h-[250px] sm:h-[300px] lg:h-[400px] mb-8 sm:mb-12 lg:mb-16 overflow-hidden">
           <img
             src={faqImage}
             alt="FAQ - Frequently Asked Questions"

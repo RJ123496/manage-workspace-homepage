@@ -372,7 +372,7 @@ export const HomePage = () => {
           alert('Opening support chat...');
         }}
         autoTrigger={true}
-        triggerInterval={{ min: 5000, max: 10000 }} // 5-10 seconds for testing (was 3-5 minutes)
+        triggerInterval={{ min: 300000, max: 300000 }} // 5 minutes (300,000 milliseconds)
         customTitle="Can't find what you are looking for?"
       />
 
