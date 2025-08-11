@@ -96,14 +96,15 @@ export const SubscriptionPlansSection = () => {
 
         {/* Toggle */}
         <div className="flex justify-center mb-8 sm:mb-10 lg:mb-12 xl:mb-16">
-          <div className="bg-[#ffecea] rounded-2xl p-1.5 sm:p-2 flex w-full max-w-xs sm:max-w-sm">
+          <div className="flex bg-white rounded-xl p-1 shadow-lg">
             <button 
               onClick={() => setActiveTab('paid')}
-              className={`flex-1 px-3 sm:px-4 lg:px-6 py-2 sm:py-3 rounded-lg text-xs sm:text-sm lg:text-base font-semibold transition-colors ${
+              className={`px-6 py-3 rounded-lg text-sm md:text-base font-medium transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[#B30D02] focus:ring-offset-2 ${
                 activeTab === 'paid' 
-                  ? 'bg-[#b30d02] text-white' 
-                  : 'text-gray-700 hover:text-[#b30d02]'
+                  ? 'bg-[#B30D02] text-white shadow-md' 
+                  : 'text-black hover:bg-gray-50'
               }`}
+              aria-label="View paid plans"
             >
               Paid plans
             </button>
@@ -112,11 +113,12 @@ export const SubscriptionPlansSection = () => {
                 setActiveTab('free');
                 setShowFreeTrialModal(true);
               }}
-              className={`flex-1 px-3 sm:px-4 lg:px-6 py-2 sm:py-3 rounded-lg text-xs sm:text-sm lg:text-base font-semibold transition-colors border-2 ${
+              className={`px-6 py-3 rounded-lg text-sm md:text-base font-medium transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[#B30D02] focus:ring-offset-2 ${
                 activeTab === 'free' 
-                  ? 'bg-[#b30d02] text-white border-[#b30d02]' 
-                  : 'text-gray-700 border-[#b30d02] hover:bg-[#b30d02] hover:text-white'
+                  ? 'bg-[#B30D02] text-white shadow-md' 
+                  : 'text-black hover:bg-gray-50'
               }`}
+              aria-label="Start free trial"
             >
               Free trial
             </button>

@@ -7,6 +7,14 @@ import serviceRequestIcon from "../assets/Service request.png";
 import referFriendIcon from "../assets/Refer a friend.png";
 import eventsManagementIcon from "../assets/Event Management .png";
 
+// Admin feature icons
+import leadManagementIcon from "../assets/Lead management.png";
+import checklistIcon from "../assets/Checklist.png";
+import expenseManagementIcon from "../assets/Expense Management.png";
+import visitorManagementIcon from "../assets/Visitor Management.png";
+import attendanceIcon from "../assets/Attendance .png";
+import adminEventsIcon from "../assets/Event Management .png";
+
 export const FeaturesSection = () => {
   const [activeTab, setActiveTab] = useState("client");
   
@@ -58,45 +66,45 @@ export const FeaturesSection = () => {
   const adminFeatures = [
     {
       id: 1,
-      title: "User Management",
-      description: "Complete member lifecycle management including onboarding, access control, and communications.",
-      mobileDescription: "Manage member profiles and permissions.",
-      icon: communityIcon,
+      title: "Leads Management",
+      description: "Manage and track potential clients, leads, and business opportunities with CRM tools.",
+      mobileDescription: "Manage leads and opportunities.",
+      icon: leadManagementIcon,
     },
     {
       id: 2,
-      title: "Analytics Dashboard",
-      description: "Track workspace usage, member engagement, and business metrics with comprehensive analytics.",
-      mobileDescription: "Track workspace usage and metrics.",
-      icon: dashboardIcon,
+      title: "Checklist",
+      description: "Create and manage task checklists, workflows, and operational procedures efficiently.",
+      mobileDescription: "Manage task checklists.",
+      icon: checklistIcon,
     },
     {
       id: 3,
-      title: "Payment Processing",
-      description: "Automated billing system for memberships, passes, and additional services with easy payment processing.",
-      mobileDescription: "Automated billing and payments.",
-      icon: membershipPassIcon,
+      title: "Expense Management",
+      description: "Track, categorize, and manage workspace expenses, budgets, and financial transactions.",
+      mobileDescription: "Track and manage expenses.",
+      icon: expenseManagementIcon,
     },
     {
       id: 4,
-      title: "Space Management",
-      description: "Configure and manage workspace areas, rooms, and amenities with booking rules and pricing.",
-      mobileDescription: "Manage workspace areas and amenities.",
-      icon: serviceRequestIcon,
+      title: "Visitor Management",
+      description: "Streamline visitor check-ins, security protocols, and guest access management.",
+      mobileDescription: "Manage visitor access.",
+      icon: visitorManagementIcon,
     },
     {
       id: 5,
-      title: "Report Generation",
-      description: "Generate comprehensive reports on utilization, activity, and performance for data-driven decisions.",
-      mobileDescription: "Generate comprehensive reports.",
-      icon: referFriendIcon,
+      title: "Attendance",
+      description: "Monitor employee attendance, track work hours, and manage workforce analytics.",
+      mobileDescription: "Track attendance.",
+      icon: attendanceIcon,
     },
     {
       id: 6,
-      title: "Settings & Configuration",
-      description: "Centralized system configuration for workspace policies, security, and platform preferences.",
-      mobileDescription: "Configure workspace settings.",
-      icon: eventsManagementIcon,
+      title: "Events Management",
+      description: "Plan, organize, and manage workspace events, meetings, and activities.",
+      mobileDescription: "Manage events.",
+      icon: adminEventsIcon,
     },
   ];
 
