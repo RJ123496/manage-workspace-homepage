@@ -24,15 +24,15 @@ export const FooterSection = () => {
       <div className="py-12 sm:py-16 px-4 sm:px-6">
         <div className="max-w-[1200px] mx-auto text-center">
           {/* Logo */}
-          <div className="flex justify-center items-center mb-6 sm:mb-8">
+          <div className="flex justify-center items-center mb-4 sm:mb-6 lg:mb-8">
             <img 
               src={logo} 
               alt="Manage Workspace Logo" 
-              className="h-16 sm:h-20 w-auto"
+              className="h-12 w-auto sm:h-16 md:h-20"
             />
           </div>
 
-          <p className="text-base sm:text-lg text-gray-700 mb-4 sm:mb-6 max-w-md mx-auto px-4">
+          <p className="text-sm sm:text-base lg:text-lg text-gray-700 mb-4 sm:mb-6 max-w-md mx-auto px-4 leading-relaxed">
             Get started with your business - we will manage your workspace
           </p>
 
@@ -58,14 +58,14 @@ export const FooterSection = () => {
 
           {/* Email Signup */}
           <div className="flex justify-center mb-8 sm:mb-12">
-            <div className="flex flex-col sm:flex-row max-w-md w-full px-4 sm:px-0">
+            <div className="flex flex-col sm:flex-row w-auto px-4 sm:px-0">
               <div className="relative flex-1 mb-3 sm:mb-0">
                 <input
                   type="email"
                   placeholder="Enter your Email"
                   className="w-full px-10 sm:px-12 py-3 rounded-3xl sm:rounded-l-3xl sm:rounded-r-none border border-gray-300 focus:outline-none focus:border-[#b30d02] text-sm sm:text-base"
                 />
-                <div className="absolute left-3 sm:left-4 top-1/2 transform -translate-y-1/2">
+                <div className="absolute left-3 sm:left-4 top-1/2 -translate-y-1/2 flex items-center justify-center h-6 sm:h-7">
                   <svg className="w-4 sm:w-5 h-4 sm:h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207" />
                   </svg>

@@ -11,7 +11,7 @@ export const TestimonialsSection = () => {
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Title at the top */}
         <div className="text-center mb-4 sm:mb-8 lg:mb-12">
-          <h2 className="w-full max-w-[361px] h-auto text-xl sm:text-2xl lg:text-3xl xl:text-4xl font-bold text-black mb-2 sm:mb-4 lg:mb-6 mx-auto">
+          <h2 className="text-xl sm:text-2xl lg:text-3xl xl:text-4xl font-bold text-black mb-2 sm:mb-4 lg:mb-6 text-center">
             Our Clients Reviews
           </h2>
           <p className="w-full max-w-[481px] h-auto text-sm sm:text-base lg:text-lg text-gray-500 mb-4 sm:mb-8 mx-auto">

@@ -36,9 +36,7 @@ export const FeaturesPage = () => {
     return () => clearInterval(interval);
   }, [testimonials.length]);
 
-  const goToSlide = (index) => {
-    setCurrentSlide(index);
-  };
+
 
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev + 1) % testimonials.length);
@@ -128,7 +126,7 @@ export const FeaturesPage = () => {
       <Header onBookLiveClick={() => setIsDemoModalOpen(true)} />
 
       {/* Hero Section */}
-      <section className="pt-16 sm:pt-20 min-h-screen flex items-center" style={{ background: 'linear-gradient(270deg, #B30D02 0%, #4D0601 100%)' }}>
+      <section id="industry-solutions" className="pt-16 sm:pt-20 min-h-screen flex items-center" style={{ background: 'linear-gradient(270deg, #B30D02 0%, #4D0601 100%)' }}>
         <div className="max-w-[1440px] mx-auto px-4 sm:px-6 py-8 sm:py-12 lg:py-20">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             {/* Left Content */}
@@ -175,8 +173,8 @@ export const FeaturesPage = () => {
                     <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
                   </svg>
                 </button>
-        </div>
-      </div>
+              </div>
+            </div>
 
             {/* Right Image */}
             <div className="flex justify-center lg:justify-end items-end mb-0 order-first lg:order-last">
@@ -214,107 +212,101 @@ export const FeaturesPage = () => {
           </div>
 
           {/* Industry Cards Grid */}
-          <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 justify-items-center">
-            {industries.map((industry) => (
-              <div 
-                key={industry.id} 
-                className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow border-0 w-full max-w-xs sm:max-w-sm lg:max-w-md"
-                style={{
-                  display: 'flex',
-                  flexDirection: 'column',
-                  justifyContent: 'flex-start',
-                  alignItems: 'flex-start',
-                  padding: 'clamp(12px, 2.5vw, 32px)',
-                  gap: '12px',
-                  background: '#FFFFFF',
-                  boxShadow: '0px 4px 12px rgba(0, 0, 0, 0.1)',
-                  borderRadius: '12px',
-                  border: 'none'
-                }}
-              >
-                {/* Image */}
+                      <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-3 lg:gap-4 justify-items-center overflow-hidden">
+              {industries.map((industry) => (
                 <div 
-                  className="w-full rounded-xl flex items-center justify-center flex-shrink-0 overflow-hidden border-0"
-                  style={{
-                    height: 'clamp(120px, 25vw, 240px)',
-                    borderRadius: '12px',
-                    border: 'none'
-                  }}
+                  key={industry.id} 
+                  className="bg-white rounded-xl hover:scale-105 hover:-translate-y-2 transition-all duration-300 ease-out border-2 border-gray-200 w-full max-w-[160px] sm:max-w-[192px] lg:max-w-[304px] xl:max-w-[336px] 2xl:max-w-[368px] cursor-pointer group overflow-hidden"
+                                      style={{
+                      display: 'flex',
+                      flexDirection: 'column',
+                      justifyContent: 'flex-start',
+                      alignItems: 'flex-start',
+                      padding: 'clamp(8px, 1.5vw, 20px)',
+                      gap: '8px',
+                      background: '#FFFFFF',
+                      borderRadius: '12px',
+                      border: 'none'
+                    }}
                 >
-                  <img 
-                    src={industry.image}
-                    alt={industry.title}
-                    className="w-full h-full object-cover rounded-xl border-0"
-                    style={{ border: 'none' }}
-                  />
-                </div>
+                  {/* Image */}
+                  <div 
+                    className="w-full rounded-xl flex items-center justify-center flex-shrink-0 overflow-hidden border border-gray-100"
+                    style={{
+                      height: 'clamp(80px, 20vw, 200px)',
+                      borderRadius: '12px'
+                    }}
+                  >
+                    <img 
+                      src={industry.image}
+                      alt={industry.title}
+                      className="w-full h-full object-cover rounded-xl border-0 group-hover:scale-110 transition-transform duration-300"
+                      style={{ border: 'none' }}
+                    />
+                  </div>
 
-                {/* Industry Title */}
-                <h3
-                  className="flex-shrink-0 border-0 w-full"
-                  style={{
-                    fontFamily: 'Poppins',
-                    fontStyle: 'normal',
-                    fontWeight: 600,
-                    fontSize: 'clamp(14px, 2.2vw, 20px)',
-                    lineHeight: '1.3',
-                    color: '#000000',
-                    margin: 0,
-                    padding: 0,
-                    border: 'none',
-                    whiteSpace: 'nowrap',
-                    overflow: 'hidden',
-                    textOverflow: 'ellipsis'
-                  }}
-                >
-                  {industry.title}
-                </h3>
-                <p
-                  className="flex-shrink-0 border-0 w-full"
-                  style={{
-                    fontFamily: 'Poppins',
-                    fontStyle: 'normal',
-                    fontWeight: 400,
-                    fontSize: 'clamp(12px, 1.8vw, 16px)',
-                    lineHeight: '1.3',
-                    color: 'rgba(0, 0, 0, 0.8)',
-                    margin: 0,
-                    padding: 0,
-                    border: 'none'
-                  }}
-                >
-                  Collaborate. Organize. Succeed
-                </p>
-                <div
-                  className="flex-grow border-0 w-full"
-                  style={{
-                    fontFamily: 'Poppins',
-                    fontStyle: 'normal',
-                    fontWeight: 400,
-                    fontSize: 'clamp(10px, 1.5vw, 14px)',
-                    lineHeight: '1.4',
-                    color: 'rgba(0, 0, 0, 0.8)',
-                    margin: 0,
-                    padding: 0,
-                    border: 'none'
-                  }}
-                >
-                  <ul className="space-y-1 sm:space-y-2 list-none border-0">
-                    <li className="flex items-start border-0">
-                      <span className="mr-1 sm:mr-2 mt-1 text-[#B30D02] font-bold border-0">•</span>
-                      <span className="border-0">Efficiently organize client visits and approvals</span>
-                    </li>
-                    <li className="flex items-start border-0">
-                      <span className="mr-1 sm:mr-2 mt-1 text-[#B30D02] font-bold border-0">•</span>
-                      <span className="border-0">Track billable hours and manage expenses</span>
-                    </li>
-                    <li className="flex items-start border-0">
-                      <span className="mr-1 sm:mr-2 mt-1 text-[#B30D02] font-bold border-0">•</span>
-                      <span className="border-0">Coordinate meetings and events seamlessly</span>
-                    </li>
-                  </ul>
+                  {/* Industry Title */}
+                  <h3
+                    className="flex-shrink-0 border-0 w-full group-hover:text-[#B30D02] transition-colors duration-300"
+                    style={{
+                      fontFamily: 'Poppins',
+                      fontStyle: 'normal',
+                      fontWeight: 600,
+                      fontSize: 'clamp(12px, 2vw, 20px)',
+                      lineHeight: '1.3',
+                      color: '#000000',
+                      margin: 0,
+                      padding: 0,
+                      border: 'none',
+                      whiteSpace: 'nowrap',
+                      overflow: 'hidden',
+                      textOverflow: 'ellipsis'
+                    }}
+                  >
+                    {industry.title}
+                  </h3>
+                  <p
+                    className="flex-shrink-0 border-0 w-full group-hover:text-gray-700 transition-colors duration-300"
+                    style={{
+                      fontFamily: 'Poppins',
+                      fontStyle: 'normal',
+                      fontWeight: 400,
+                      fontSize: 'clamp(10px, 1.6vw, 16px)',
+                      lineHeight: '1.3',
+                      color: 'rgba(0, 0, 0, 0.8)',
+                      margin: 0,
+                      padding: 0,
+                      border: 'none'
+                    }}
+                  >
+                    Collaborate. Organize. Succeed
+                  </p>
+                  <div
+                    className="flex-grow border-0 w-full"
+                    style={{
+                      fontFamily: 'Poppins',
+                      fontStyle: 'normal',
+                      fontWeight: 400,
+                      fontSize: 'clamp(9px, 1.4vw, 14px)',
+                      lineHeight: '1.4',
+                      color: 'rgba(0, 0, 0, 0.8)',
+                      margin: 0,
+                      padding: 0,
+                      border: 'none'
+                    }}
+                  >
+                    <ul className="space-y-1 list-none border-0">
+                      <li className="flex items-start border-0">
+                        <span className="mr-1 sm:mr-2 mt-1 text-[#B30D02] font-bold border-0">•</span>
+                        <span className="border-0">Efficiently organize client visits and approvals</span>
+                      </li>
+                      <li className="flex items-start border-0">
+                        <span className="mr-1 sm:mr-2 mt-1 text-[#B30D02] font-bold border-0">•</span>
+                        <span className="border-0">Track billable hours and manage expenses</span>
+                      </li>
+                    </ul>
+                  </div>
                 </div>
-              </div>
             ))}
           </div>
         </div>
@@ -355,7 +347,7 @@ export const FeaturesPage = () => {
       </section>
 
       {/* Client Success Story Section */}
-      <section className="py-12 sm:py-16 lg:py-24 bg-white relative">
+      <section className="py-6 sm:py-16 lg:py-24 bg-white relative">
         <div className="max-w-[1440px] mx-auto px-4 sm:px-6 relative">
           <div className="text-center mb-12 sm:mb-16">
             <h2 className="text-2xl sm:text-3xl lg:text-5xl font-bold text-[#B30D02] mb-4">
@@ -367,15 +359,15 @@ export const FeaturesPage = () => {
           </div>
 
           {/* Team Image and Text Row */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center mb-12">
-            {/* Left Side - Text Content */}
-            <div className="order-2 lg:order-1 flex items-center justify-center">
-              <div className="text-center lg:text-left">
-                <div className="flex items-center justify-center lg:justify-start mb-4">
-                  <span className="text-3xl mr-3">🏙️</span>
-                  <h3 className="text-2xl lg:text-3xl font-bold text-black">Metro Desk Co.</h3>
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-6 md:gap-8 lg:gap-12 items-center mb-8 md:mb-10 lg:mb-12">
+            {/* Left Side - Text Content - 40% on desktop */}
+            <div className="order-2 md:order-1 md:col-span-2 flex items-center justify-center">
+              <div className="text-center md:text-left w-full max-w-md md:max-w-none">
+                <div className="flex items-center justify-center md:justify-start mb-4">
+                  <span className="text-2xl md:text-3xl mr-3">🏙️</span>
+                  <h3 className="text-xl md:text-2xl lg:text-3xl font-bold text-black">Metro Desk Co.</h3>
                 </div>
-                <div className="space-y-3 text-gray-600 text-base lg:text-lg">
+                <div className="space-y-2 md:space-y-3 text-gray-600 text-sm md:text-base lg:text-lg">
                   <p><strong>Industry:</strong> Real Estate & Co-working Operator</p>
                   <p><strong>Location:</strong> Hyderabad, India</p>
                   <p><strong>Team Size:</strong> 40+ (facility managers, client service, tech team)</p>
@@ -384,27 +376,29 @@ export const FeaturesPage = () => {
               </div>
             </div>
 
-            {/* Right Side - Team Image */}
-            <div className="order-1 lg:order-2 flex justify-end">
-              <img 
-                src={require('../assets/5 joyful .png')}
-                alt="Joyful five colleagues" 
-                className="w-full max-w-2xl h-auto object-contain"
-              />
+            {/* Right Side - Team Image - 60% on desktop */}
+            <div className="order-1 md:order-2 md:col-span-3 flex justify-center md:justify-end">
+              <div className="w-full max-w-md md:max-w-none">
+                <img 
+                  src={require('../assets/5 joyful .png')}
+                  alt="Joyful five colleagues" 
+                  className="w-full h-auto object-contain rounded-lg"
+                />
+              </div>
             </div>
           </div>
 
           {/* Main Content Container */}
-          <div className="mb-12">
+          <div className="mb-8 md:mb-10 lg:mb-12">
             {/* Three Column Layout */}
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 lg:gap-12">
               {/* Challenge Column */}
-              <div className="p-6">
-                <div className="flex items-center mb-4">
-                  <span className="text-2xl mr-3">🚧</span>
-                  <h4 className="text-xl font-bold text-black">The Challenge</h4>
+              <div className="p-4 md:p-6">
+                <div className="flex items-center mb-3 md:mb-4">
+                  <span className="text-xl md:text-2xl mr-2 md:mr-3">🚧</span>
+                  <h4 className="text-lg md:text-xl font-bold text-black">The Challenge</h4>
                 </div>
-                <ul className="space-y-3 text-gray-600 text-sm lg:text-base">
+                <ul className="space-y-2 md:space-y-3 text-gray-600 text-xs md:text-sm lg:text-base">
                   <li className="flex items-start">
                     <span className="text-[#B30D02] mr-2 mt-1">•</span>
                     <span>Manual check-ins across locations</span>
@@ -425,12 +419,12 @@ export const FeaturesPage = () => {
               </div>
 
               {/* Solution Column */}
-              <div className="p-6">
-                <div className="flex items-center mb-4">
-                  <span className="text-2xl mr-3">⚡</span>
-                  <h4 className="text-xl font-bold text-black">Our Solution</h4>
+              <div className="p-4 md:p-6">
+                <div className="flex items-center mb-3 md:mb-4">
+                  <span className="text-xl md:text-2xl mr-2 md:mr-3">⚡</span>
+                  <h4 className="text-lg md:text-xl font-bold text-black">Our Solution</h4>
                 </div>
-                <ul className="space-y-3 text-gray-600 text-sm lg:text-base">
+                <ul className="space-y-2 md:space-y-3 text-gray-600 text-xs md:text-sm lg:text-base">
                   <li className="flex items-start">
                     <span className="text-[#B30D02] mr-2 mt-1">•</span>
                     <span>QR-based visitor management</span>
@@ -451,12 +445,12 @@ export const FeaturesPage = () => {
               </div>
 
               {/* Results Column */}
-              <div className="p-6">
-                <div className="flex items-center mb-4">
-                  <span className="text-2xl mr-3">📈</span>
-                  <h4 className="text-xl font-bold text-black">Results in 3 Months</h4>
+              <div className="p-4 md:p-6">
+                <div className="flex items-center mb-3 md:mb-4">
+                  <span className="text-xl md:text-2xl mr-2 md:mr-3">📈</span>
+                  <h4 className="text-lg md:text-xl font-bold text-black">Results in 3 Months</h4>
                 </div>
-                <ul className="space-y-3 text-gray-600 text-sm lg:text-base">
+                <ul className="space-y-2 md:space-y-3 text-gray-600 text-xs md:text-sm lg:text-base">
                   <li className="flex items-start">
                     <span className="text-[#B30D02] mr-2 mt-1">•</span>
                     <span>100% secure guest flow tracking</span>
@@ -480,53 +474,53 @@ export const FeaturesPage = () => {
 
           {/* Testimonials Carousel */}
           <div className="text-center">
-            <div className="relative w-full max-w-4xl mx-auto">
+            <div className="relative w-full max-w-6xl mx-auto px-2 sm:px-16 md:px-20 lg:px-32">
               {/* Carousel Container */}
-              <div className="relative overflow-hidden rounded-2xl">
+              <div className="relative overflow-hidden rounded-xl sm:rounded-2xl">
                 <div 
                   className="flex transition-transform duration-500 ease-in-out"
                   style={{ transform: `translateX(-${currentSlide * 100}%)` }}
                 >
                   {testimonials.map((testimonial, index) => (
-                    <div key={index} className="w-full flex-shrink-0 px-4">
+                    <div key={index} className="w-full flex-shrink-0 px-1 sm:px-4">
                       <div 
-                        className="bg-[#B30D02] rounded-2xl p-6 sm:p-8 text-white shadow-xl"
+                        className="bg-[#B30D02] rounded-xl sm:rounded-2xl p-3 sm:p-6 md:p-8 text-white shadow-lg sm:shadow-xl"
                         style={{
                           fontFamily: 'Poppins',
                           fontStyle: 'normal',
                           fontWeight: 400,
-                          fontSize: 'clamp(16px, 2.5vw, 20px)',
-                          lineHeight: '1.6',
+                          fontSize: 'clamp(14px, 3vw, 20px)',
+                          lineHeight: '1.5',
                           color: '#FFFFFF'
                         }}
                       >
                         {/* Quote Icon */}
-                        <div className="flex items-start justify-center mb-4">
-                          <div className="bg-white rounded-full p-2 mr-4">
-                            <svg className="w-6 h-6 text-[#B30D02]" fill="currentColor" viewBox="0 0 24 24">
+                        <div className="flex items-start justify-center mb-2 sm:mb-4">
+                          <div className="bg-white rounded-full p-1 sm:p-2 mr-2 sm:mr-4">
+                            <svg className="w-3 h-3 sm:w-6 sm:h-6 text-[#B30D02]" fill="currentColor" viewBox="0 0 24 24">
                               <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
                             </svg>
                           </div>
                         </div>
                         
                         {/* Quote Text */}
-                        <p className="mb-6 italic leading-relaxed">
+                        <p className="mb-3 sm:mb-6 italic leading-relaxed">
                           "{testimonial.quote}"
                         </p>
                         
                         {/* Separator */}
-                        <div className="w-full h-px bg-white/30 mb-4"></div>
+                        <div className="w-full h-px bg-white/30 mb-2 sm:mb-4"></div>
                         
                         {/* Author Info */}
                         <div className="flex items-center justify-center">
                           <img 
                             src={testimonial.image} 
                             alt={testimonial.name}
-                            className="w-12 h-12 rounded-full mr-4 object-cover"
+                            className="w-8 h-8 sm:w-12 sm:h-12 rounded-full mr-2 sm:mr-4 object-cover"
                           />
                           <div>
-                            <p className="font-semibold">{testimonial.name}</p>
-                            <p className="text-sm opacity-90">{testimonial.title}</p>
+                            <p className="font-semibold text-xs sm:text-base">{testimonial.name}</p>
+                            <p className="text-xs opacity-90">{testimonial.title}</p>
                           </div>
                         </div>
                       </div>
@@ -538,39 +532,25 @@ export const FeaturesPage = () => {
               {/* Navigation Arrows */}
               <button
                 onClick={prevSlide}
-                className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white text-[#B30D02] rounded-full p-2 sm:p-3 shadow-lg transition-all duration-300 z-10"
+                className="absolute left-2 sm:left-4 md:left-6 top-1/2 transform -translate-y-1/2 bg-transparent sm:bg-white hover:bg-white/20 sm:hover:bg-gray-50 text-white sm:text-gray-600 sm:hover:text-[#B30D02] rounded-full p-1.5 sm:p-2 md:p-3 shadow-none sm:shadow-md sm:hover:shadow-lg border-0 sm:border sm:border-gray-200 transition-all duration-200 z-10 group"
                 aria-label="Previous testimonial"
               >
-                <svg className="w-4 h-4 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                <svg className="w-4 h-4 sm:w-5 sm:h-5 group-hover:scale-110 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M15 19l-7-7 7-7" />
                 </svg>
               </button>
               
               <button
                 onClick={nextSlide}
-                className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white text-[#B30D02] rounded-full p-2 sm:p-3 shadow-lg transition-all duration-300 z-10"
+                className="absolute right-2 sm:right-4 md:right-6 top-1/2 transform -translate-y-1/2 bg-transparent sm:bg-white hover:bg-white/20 sm:hover:bg-gray-50 text-white sm:text-gray-600 sm:hover:text-[#B30D02] rounded-full p-1.5 sm:p-2 md:p-3 shadow-none sm:shadow-md sm:hover:shadow-lg border-0 sm:border sm:border-gray-200 transition-all duration-200 z-10 group"
                 aria-label="Next testimonial"
               >
-                <svg className="w-4 h-4 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                <svg className="w-4 h-4 sm:w-5 sm:h-5 group-hover:scale-110 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
                 </svg>
               </button>
 
-              {/* Navigation Dots */}
-              <div className="flex justify-center mt-6 space-x-2">
-                {testimonials.map((_, index) => (
-                  <button
-                    key={index}
-                    onClick={() => goToSlide(index)}
-                    className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                      index === currentSlide 
-                        ? 'bg-[#B30D02] scale-110' 
-                        : 'bg-gray-300 hover:bg-gray-400'
-                    }`}
-                    aria-label={`Go to testimonial ${index + 1}`}
-                  />
-                ))}
-              </div>
+              {/* Navigation Dots - Completely Removed */}
             </div>
           </div>
         </div>
@@ -582,15 +562,15 @@ export const FeaturesPage = () => {
         <div className="py-12 sm:py-16 px-4 sm:px-6">
           <div className="max-w-[1200px] mx-auto text-center">
             {/* Logo */}
-            <div className="flex justify-center items-center mb-6 sm:mb-8">
+            <div className="flex justify-center items-center mb-4 sm:mb-6 lg:mb-8">
               <img 
                 src={require('../assets/New transparent logo.png')} 
                 alt="Manage Workspace Logo" 
-                className="h-16 sm:h-20 w-auto"
+                className="h-10 w-auto sm:h-14 md:h-16 lg:h-20"
               />
             </div>
 
-            <p className="text-base sm:text-lg text-gray-700 mb-4 sm:mb-6 max-w-md mx-auto px-4">
+            <p className="text-sm sm:text-base lg:text-lg text-gray-700 mb-4 sm:mb-6 w-auto mx-auto px-4 leading-relaxed">
               Get started with your business - we will manage your workspace
             </p>
 
@@ -616,14 +596,14 @@ export const FeaturesPage = () => {
 
             {/* Email Signup */}
             <div className="flex justify-center mb-8 sm:mb-12">
-              <div className="flex flex-col sm:flex-row max-w-md w-full px-4 sm:px-0">
+              <div className="flex flex-col sm:flex-row w-auto px-4 sm:px-0">
                 <div className="relative flex-1 mb-3 sm:mb-0">
                   <input
                     type="email"
                     placeholder="Enter your Email"
                     className="w-full px-10 sm:px-12 py-3 rounded-3xl sm:rounded-l-3xl sm:rounded-r-none border border-gray-300 focus:outline-none focus:border-[#b30d02] text-sm sm:text-base"
                   />
-                  <div className="absolute left-3 sm:left-4 top-1/2 transform -translate-y-1/2">
+                  <div className="absolute left-3 sm:left-4 top-1/2 -translate-y-1/2 flex items-center justify-center h-6 sm:h-7">
                     <svg className="w-4 sm:w-5 h-4 sm:h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207" />
                     </svg>

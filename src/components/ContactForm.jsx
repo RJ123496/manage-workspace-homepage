@@ -73,27 +73,27 @@ const ContactForm = () => {
     <div className="relative w-full max-w-2xl">
       {/* Main Form Container */}
                                                        <div 
-           className="bg-white rounded-2xl shadow-lg p-8 w-full max-w-[642px] relative"
+           className="bg-white rounded-2xl p-6 w-full max-w-[642px] relative border-2 border-gray-200 overflow-visible"
            style={{
              width: '642px',
-             height: '650px',
+             height: 'auto',
+             minHeight: '685px',
              background: '#FFFFFF',
-             borderRadius: '16px'
+             borderRadius: '16px',
+             overflow: 'visible'
            }}
          >
                                    {/* Header */}
-          <div className="mb-6 text-center">
+          <div className="mb-8 text-center">
             <h2 
-              className="font-poppins font-semibold text-black"
+              className="font-poppins font-bold text-black mb-3"
               style={{
                 fontFamily: 'Poppins',
                 fontStyle: 'normal',
-                fontWeight: 600,
+                fontWeight: 700,
                 fontSize: '48px',
-                lineHeight: '72px',
+                lineHeight: '1.2',
                 color: '#000000',
-                width: '304px',
-                height: '72px',
                 margin: '0 auto'
               }}
             >
@@ -105,13 +105,11 @@ const ContactForm = () => {
                 fontFamily: 'Poppins',
                 fontStyle: 'normal',
                 fontWeight: 400,
-                fontSize: '20px',
-                lineHeight: '30px',
-                color: '#000000',
-                width: '450px',
-                height: '30px',
+                fontSize: '18px',
+                lineHeight: '1.4',
+                color: '#666666',
                 margin: '0 auto',
-                marginTop: '8px'
+                maxWidth: '400px'
               }}
             >
               Fill out the form below to get in touch with us.
@@ -130,7 +128,7 @@ const ContactForm = () => {
                  onChange={handleInputChange}
                  placeholder="First Name"
                  className="w-full px-4 border border-[#969696] rounded-lg font-sans text-base text-gray-700 placeholder-gray-500 focus:outline-none focus:border-[#B30D02] focus:ring-2 focus:ring-[#B30D02]/20 transition-all duration-200"
-                 style={{ height: '60px' }}
+                 style={{ height: '66px' }}
                  required
                />
              </div>
@@ -142,7 +140,7 @@ const ContactForm = () => {
                  onChange={handleInputChange}
                  placeholder="Last Name"
                  className="w-full px-4 border border-[#969696] rounded-lg font-sans text-base text-gray-700 placeholder-gray-500 focus:outline-none focus:border-[#B30D02] focus:ring-2 focus:ring-[#B30D02]/20 transition-all duration-200"
-                 style={{ height: '60px' }}
+                 style={{ height: '66px' }}
                  required
                />
              </div>
@@ -157,7 +155,7 @@ const ContactForm = () => {
                onChange={handleInputChange}
                placeholder="Company mail ID"
                className="w-full px-4 border border-[#969696] rounded-lg font-sans text-base text-gray-700 placeholder-gray-500 focus:outline-none focus:border-[#B30D02] focus:ring-2 focus:ring-[#B30D02]/20 transition-all duration-200"
-               style={{ height: '60px' }}
+               style={{ height: '66px' }}
                required
              />
            </div>
@@ -171,7 +169,7 @@ const ContactForm = () => {
                onChange={handleInputChange}
                placeholder="Mobile Number"
                className="w-full px-4 border border-[#969696] rounded-lg font-sans text-base text-gray-700 placeholder-gray-500 focus:outline-none focus:border-[#B30D02] focus:ring-2 focus:ring-[#B30D02]/20 transition-all duration-200"
-               style={{ height: '60px' }}
+               style={{ height: '66px' }}
                required
              />
            </div>
@@ -184,7 +182,7 @@ const ContactForm = () => {
                  onChange={handleInputChange}
                  placeholder="Message"
                  className="w-full px-4 py-4 border border-[#969696] rounded-lg font-sans text-base text-gray-700 placeholder-gray-500 focus:outline-none focus:border-[#B30D02] focus:ring-2 focus:ring-[#B30D02]/20 resize-none transition-all duration-200"
-                 style={{ height: '120px' }}
+                 style={{ height: '132px' }}
                  required
                />
              </div>
@@ -194,9 +192,9 @@ const ContactForm = () => {
                <button
                  type="submit"
                  disabled={isSubmitting}
-                 className="w-full text-white font-sans text-lg rounded-lg transition-all duration-200 hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-[#B30D02]/30 disabled:opacity-70 disabled:cursor-not-allowed transform hover:scale-[1.02] active:scale-[0.98]"
+                 className="w-full text-white font-sans text-lg rounded-lg transition-all duration-200 hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-[#B30D02]/30 disabled:opacity-70 disabled:cursor-not-allowed"
                  style={{
-                   height: '60px',
+                   height: '62px',
                    backgroundColor: '#B30D02'
                  }}
                >
@@ -211,18 +209,18 @@ const ContactForm = () => {
                </button>
              </div>
 
-          {/* Status Messages */}
+                    {/* Status Messages */}
           {submitStatus === 'success' && (
-            <div className="absolute -bottom-16 left-1/2 transform -translate-x-1/2 text-green-600 text-center font-poppins text-sm font-medium px-4 py-2 bg-green-100 rounded-md shadow-sm border border-green-200">
+            <div className="mt-4 text-green-600 text-center font-poppins text-sm font-medium px-4 py-2 bg-green-100 rounded-md shadow-sm border border-green-200">
               ✓ Thank you! Your message has been sent successfully.
             </div>
           )}
           
           {submitStatus === 'error' && (
-            <div className="absolute -bottom-16 left-1/2 transform -translate-x-1/2 text-red-600 text-center font-poppins text-sm font-medium px-4 py-2 bg-red-100 rounded-md shadow-sm border border-red-200">
+            <div className="mt-4 text-red-600 text-center font-poppins text-sm font-medium px-4 py-2 bg-red-100 rounded-md shadow-sm border border-red-200">
               ✗ Please fill out all fields correctly.
             </div>
-          )}
+            )}
         </form>
       </div>
     </div>

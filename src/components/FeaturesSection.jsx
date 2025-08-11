@@ -148,7 +148,7 @@ export const FeaturesSection = () => {
           {features.map((feature) => (
             <div
               key={feature.id}
-              className="bg-white rounded-3xl shadow-lg p-4 md:p-6 hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group cursor-pointer w-full max-w-[200px] md:max-w-[280px] lg:max-w-[411px] h-auto min-h-[300px] md:min-h-[380px] lg:min-h-[434px]"
+              className="bg-white rounded-3xl shadow-lg p-4 md:p-6 hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group cursor-pointer w-full max-w-[176px] md:max-w-[246px] lg:max-w-[362px] h-auto min-h-[240px] md:min-h-[304px] lg:min-h-[347px]"
               tabIndex={0}
               role="button"
               aria-label={`Learn more about ${feature.title}`}
@@ -164,16 +164,16 @@ export const FeaturesSection = () => {
                 <img
                   src={feature.icon}
                   alt={`${feature.title} icon`}
-                  className="w-32 h-28 md:w-40 md:h-36 lg:w-[236px] lg:h-[200px] object-contain rounded-lg group-hover:scale-105 transition-transform duration-300"
+                  className="w-26 h-22 md:w-32 md:h-29 lg:w-[189px] lg:h-[160px] object-contain rounded-lg group-hover:scale-105 transition-transform duration-300"
                   loading="lazy"
                 />
               </div>
               
               {/* Content */}
-              <h3 className="text-base md:text-lg font-bold text-black mb-2 md:mb-3 text-center group-hover:text-[#B30D02] transition-colors duration-300">
+              <h3 className="text-lg md:text-xl font-bold text-black mb-2 md:mb-3 text-center group-hover:text-[#B30D02] transition-colors duration-300">
                 {feature.title}
               </h3>
-              <p className="text-xs md:text-sm text-gray-800 leading-relaxed text-center">
+              <p className="text-sm md:text-base text-gray-800 leading-relaxed text-center">
                 <span className="block md:hidden">{feature.mobileDescription || feature.description}</span>
                 <span className="hidden md:block">{feature.description}</span>
               </p>

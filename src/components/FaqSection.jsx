@@ -59,7 +59,7 @@ export const FaqSection = () => {
             </h3>
           </div>
 
-          <div className="bg-[#FFECEA] rounded-lg shadow-lg">
+          <div className="bg-[#FFECEA] rounded-lg border-2 border-transparent">
             {faqItems.map((item, index) => (
               <div key={index} className="border-b border-gray-300 last:border-b-0">
                 <button

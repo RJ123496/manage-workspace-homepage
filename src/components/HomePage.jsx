@@ -262,7 +262,10 @@ export const HomePage = () => {
               No two industries work alike. That's why ManageWorkspace offers tailor-made tools for each — from visitor tracking to event coordination and resource booking.
             </p>
             <button 
-              onClick={() => navigate('/features')}
+              onClick={() => {
+                navigate('/features');
+                window.scrollTo(0, 0);
+              }}
               className="w-fit px-4 sm:px-6 py-2 sm:py-3 bg-[#B30D02] text-white rounded-lg hover:bg-[#8a0a02] transition-colors duration-300 flex items-center cursor-pointer text-sm sm:text-base"
             >
               Explore more

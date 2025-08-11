@@ -112,10 +112,10 @@ export const SubscriptionPlansSection = () => {
                 setActiveTab('free');
                 setShowFreeTrialModal(true);
               }}
-              className={`flex-1 px-3 sm:px-4 lg:px-6 py-2 sm:py-3 rounded-lg text-xs sm:text-sm lg:text-base font-semibold transition-colors ${
+              className={`flex-1 px-3 sm:px-4 lg:px-6 py-2 sm:py-3 rounded-lg text-xs sm:text-sm lg:text-base font-semibold transition-colors border-2 ${
                 activeTab === 'free' 
-                  ? 'bg-[#b30d02] text-white' 
-                  : 'text-gray-700 hover:text-[#b30d02]'
+                  ? 'bg-[#b30d02] text-white border-[#b30d02]' 
+                  : 'text-gray-700 border-[#b30d02] hover:bg-[#b30d02] hover:text-white'
               }`}
             >
               Free trial
@@ -128,15 +128,15 @@ export const SubscriptionPlansSection = () => {
           {plans.map((plan, index) => (
             <div
               key={index}
-              className={`relative bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-6 lg:p-8 text-center transition-all duration-300 cursor-pointer hover:border-[#b30d02] hover:shadow-xl hover:scale-105 ${
+              className={`relative bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-6 lg:p-8 text-center transition-all duration-300 cursor-pointer hover:border-[#b30d02] hover:-translate-y-2 ${
                 plan.highlighted 
-                  ? 'border-2 border-gray-200 shadow-xl' 
-                  : 'border-2 border-gray-200 shadow-lg'
+                  ? 'border-2 border-gray-200' 
+                  : 'border-2 border-gray-200'
               }`}
             >
               {/* Recommended Ribbon */}
               {plan.highlighted && (
-                <div className="absolute -top-2 sm:-top-3 -right-2 sm:-right-3 bg-gradient-to-r from-[#b30d02] to-[#d9372d] text-white px-3 sm:px-4 py-1 rounded-full text-xs font-bold shadow-lg transform rotate-12 z-10">
+                <div className="absolute -top-2 sm:-top-3 -right-2 sm:-right-3 bg-gradient-to-r from-[#b30d02] to-[#d9372d] text-white px-3 sm:px-4 py-1 rounded-full text-xs font-bold transform rotate-12 z-10">
                   RECOMMENDED
                 </div>
               )}
