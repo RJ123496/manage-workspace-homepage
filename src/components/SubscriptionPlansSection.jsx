@@ -86,7 +86,7 @@ export const SubscriptionPlansSection = () => {
   ];
 
   return (
-    <section className="py-12 sm:py-16 lg:py-20 xl:py-24 px-3 sm:px-6 lg:px-10 bg-white overflow-hidden min-h-screen">
+    <section className="py-12 sm:py-16 lg:py-20 xl:py-24 px-3 sm:px-6 lg:px-10 bg-white overflow-hidden min-h-screen" style={{ fontFamily: 'Nunito, sans-serif' }}>
       <div className="max-w-[1400px] mx-auto">
         <h2 className="text-xl sm:text-2xl lg:text-3xl xl:text-4xl font-bold text-gray-800 mb-4 sm:mb-6 lg:mb-8 xl:mb-10 text-center px-2">
           Our Subscription Plans
@@ -204,22 +204,18 @@ export const SubscriptionPlansSection = () => {
                 {plan.description}
               </p>
               
-              <ul className={`mb-4 sm:mb-5 lg:mb-6 space-y-2 sm:space-y-2.5 text-center ${
+              <div className={`mb-4 sm:mb-5 lg:mb-6 ${
                 plan.highlighted 
                   ? 'text-gray-500' 
                   : 'text-gray-700'
-              }`}>
+              }`} style={{ marginLeft: '100px' }}>
                 {plan.features.map((feature, featureIndex) => (
-                  <li key={featureIndex} className={`flex items-center justify-center text-sm sm:text-base lg:text-lg`}>
-                    <div className={`bg-black rounded-full mr-2 sm:mr-3 lg:mr-4 flex-shrink-0 ${
-                      plan.highlighted 
-                        ? 'w-2 h-2 sm:w-2.5 sm:h-2.5 lg:w-3 lg:h-3' 
-                        : 'w-2 h-2 sm:w-2.5 sm:h-2.5 lg:w-3 lg:h-3'
-                    }`}></div>
-                    {feature}
-                  </li>
+                  <div key={featureIndex} className="flex items-center text-sm sm:text-base lg:text-lg">
+                    <div className="bg-black rounded-full w-2 h-2 mr-3 flex-shrink-0" style={{ minWidth: '8px', flexShrink: 0 }}></div>
+                    <span>{feature}</span>
+                  </div>
                 ))}
-              </ul>
+              </div>
               
               <div className={`mt-auto ${plan.highlighted ? 'mt-4' : ''}`}>
                 <button 
