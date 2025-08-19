@@ -5,6 +5,7 @@ export { FeaturesSection } from './FeaturesSection';
 export { FooterSection } from './FooterSection';
 export { SubscriptionPlansSection } from './SubscriptionPlansSection';
 export { TestimonialsSection } from './TestimonialsSection';
+export { ClientTestimonial } from './ClientTestimonial';
 export { Header } from './Header';
 export { ContactForm } from './ContactForm';
 export { Button } from './Button';

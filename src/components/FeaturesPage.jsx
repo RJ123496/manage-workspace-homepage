@@ -122,7 +122,7 @@ export const FeaturesPage = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-white font-poppins">
+            <div className="min-h-screen bg-white font-lato">
       <Header onBookLiveClick={() => setIsDemoModalOpen(true)} />
 
       {/* Hero Section */}
@@ -134,7 +134,7 @@ export const FeaturesPage = () => {
               <div 
                 className="mb-4 sm:mb-6"
                 style={{
-                  fontFamily: 'Poppins',
+                  fontFamily: 'Lato',
                   fontStyle: 'normal',
                   fontWeight: 700,
                   fontSize: 'clamp(28px, 5vw, 48px)',
@@ -147,7 +147,7 @@ export const FeaturesPage = () => {
               <div 
                 className="mb-6 sm:mb-8"
                 style={{
-                  fontFamily: 'Poppins',
+                  fontFamily: 'Lato',
                   fontStyle: 'normal',
                   fontWeight: 400,
                   fontSize: 'clamp(16px, 3vw, 20px)',
@@ -196,7 +196,7 @@ export const FeaturesPage = () => {
             <h2 
               className="text-2xl sm:text-3xl lg:text-5xl font-bold mb-4"
               style={{
-                fontFamily: 'Poppins',
+                fontFamily: 'Lato',
                 fontStyle: 'normal',
                 fontWeight: 600,
                 fontSize: 'clamp(24px, 4vw, 36px)',
@@ -206,107 +206,110 @@ export const FeaturesPage = () => {
             >
               Workspace Solutions for Every Sector
             </h2>
-            <p className="text-base sm:text-lg lg:text-xl text-black max-w-2xl mx-auto">
+            <p className="text-base sm:text-lg lg:text-xl text-black max-w-2xl mx-auto mb-6">
               We help businesses across industries manage space, teams & resources
+            </p>
+            <p className="text-base sm:text-lg text-gray-700 max-w-4xl mx-auto leading-relaxed">
+              No two industries work alike. That's why ManageWorkspace offers tailor-made tools for each — from visitor tracking to event coordination and resource booking.
             </p>
           </div>
 
           {/* Industry Cards Grid */}
-                      <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-3 lg:gap-4 justify-items-center overflow-hidden">
-              {industries.map((industry) => (
+          <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-3 lg:gap-4 justify-items-center overflow-hidden">
+            {industries.map((industry) => (
+              <div 
+                key={industry.id} 
+                className="bg-white rounded-xl hover:scale-105 hover:-translate-y-2 transition-all duration-300 ease-out border-2 border-gray-200 w-full max-w-[160px] sm:max-w-[192px] lg:max-w-[304px] xl:max-w-[336px] 2xl:max-w-[368px] cursor-pointer group overflow-hidden"
+                style={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                  justifyContent: 'flex-start',
+                  alignItems: 'flex-start',
+                  padding: 'clamp(8px, 1.5vw, 20px)',
+                  gap: '8px',
+                  background: '#FFFFFF',
+                  borderRadius: '12px',
+                  border: 'none'
+                }}
+              >
+                {/* Image */}
                 <div 
-                  key={industry.id} 
-                  className="bg-white rounded-xl hover:scale-105 hover:-translate-y-2 transition-all duration-300 ease-out border-2 border-gray-200 w-full max-w-[160px] sm:max-w-[192px] lg:max-w-[304px] xl:max-w-[336px] 2xl:max-w-[368px] cursor-pointer group overflow-hidden"
-                                      style={{
-                      display: 'flex',
-                      flexDirection: 'column',
-                      justifyContent: 'flex-start',
-                      alignItems: 'flex-start',
-                      padding: 'clamp(8px, 1.5vw, 20px)',
-                      gap: '8px',
-                      background: '#FFFFFF',
-                      borderRadius: '12px',
-                      border: 'none'
-                    }}
+                  className="w-full rounded-xl flex items-center justify-center flex-shrink-0 overflow-hidden border border-gray-100"
+                  style={{
+                    height: 'clamp(80px, 20vw, 200px)',
+                    borderRadius: '12px'
+                  }}
                 >
-                  {/* Image */}
-                  <div 
-                    className="w-full rounded-xl flex items-center justify-center flex-shrink-0 overflow-hidden border border-gray-100"
-                    style={{
-                      height: 'clamp(80px, 20vw, 200px)',
-                      borderRadius: '12px'
-                    }}
-                  >
-                    <img 
-                      src={industry.image}
-                      alt={industry.title}
-                      className="w-full h-full object-cover rounded-xl border-0 group-hover:scale-110 transition-transform duration-300"
-                      style={{ border: 'none' }}
-                    />
-                  </div>
-
-                  {/* Industry Title */}
-                  <h3
-                    className="flex-shrink-0 border-0 w-full group-hover:text-[#B30D02] transition-colors duration-300"
-                    style={{
-                      fontFamily: 'Poppins',
-                      fontStyle: 'normal',
-                      fontWeight: 600,
-                      fontSize: 'clamp(12px, 2vw, 20px)',
-                      lineHeight: '1.3',
-                      color: '#000000',
-                      margin: 0,
-                      padding: 0,
-                      border: 'none',
-                      whiteSpace: 'nowrap',
-                      overflow: 'hidden',
-                      textOverflow: 'ellipsis'
-                    }}
-                  >
-                    {industry.title}
-                  </h3>
-                  <p
-                    className="flex-shrink-0 border-0 w-full group-hover:text-gray-700 transition-colors duration-300"
-                    style={{
-                      fontFamily: 'Poppins',
-                      fontStyle: 'normal',
-                      fontWeight: 400,
-                      fontSize: 'clamp(10px, 1.6vw, 16px)',
-                      lineHeight: '1.3',
-                      color: 'rgba(0, 0, 0, 0.8)',
-                      margin: 0,
-                      padding: 0,
-                      border: 'none'
-                    }}
-                  >
-                    Collaborate. Organize. Succeed
-                  </p>
-                  <div
-                    className="flex-grow border-0 w-full"
-                    style={{
-                      fontFamily: 'Poppins',
-                      fontStyle: 'normal',
-                      fontWeight: 400,
-                      fontSize: 'clamp(9px, 1.4vw, 14px)',
-                      lineHeight: '1.4',
-                      color: 'rgba(0, 0, 0, 0.8)',
-                      margin: 0,
-                      padding: 0,
-                      border: 'none'
-                    }}
-                  >
-                    <ul className="space-y-1 list-none border-0">
-                      <li className="flex items-start border-0">
-                        <span className="mr-1 sm:mr-2 mt-1 text-[#B30D02] font-bold border-0">•</span>
-                        <span className="border-0">Efficiently organize client visits and approvals</span>
-                      </li>
-                      <li className="flex items-start border-0">
-                        <span className="mr-1 sm:mr-2 mt-1 text-[#B30D02] font-bold border-0">•</span>
-                        <span className="border-0">Track billable hours and manage expenses</span>
-                      </li>
-                    </ul>
-                  </div>
+                  <img 
+                    src={industry.image}
+                    alt={industry.title}
+                    className="w-full h-full object-cover rounded-xl border-0 group-hover:scale-110 transition-transform duration-300"
+                    style={{ border: 'none' }}
+                  />
                 </div>
+
+                {/* Industry Title */}
+                <h3
+                  className="flex-shrink-0 border-0 w-full group-hover:text-[#B30D02] transition-colors duration-300"
+                  style={{
+                    fontFamily: 'Lato',
+                    fontStyle: 'normal',
+                    fontWeight: 600,
+                    fontSize: 'clamp(12px, 2vw, 20px)',
+                    lineHeight: '1.3',
+                    color: '#000000',
+                    margin: 0,
+                    padding: 0,
+                    border: 'none',
+                    whiteSpace: 'nowrap',
+                    overflow: 'hidden',
+                    textOverflow: 'ellipsis'
+                  }}
+                >
+                  {industry.title}
+                </h3>
+                <p
+                  className="flex-shrink-0 border-0 w-full group-hover:text-gray-700 transition-colors duration-300"
+                  style={{
+                    fontFamily: 'Lato',
+                    fontStyle: 'normal',
+                    fontWeight: 400,
+                    fontSize: 'clamp(10px, 1.6vw, 16px)',
+                    lineHeight: '1.3',
+                    color: 'rgba(0, 0, 0, 0.8)',
+                    margin: 0,
+                    padding: 0,
+                    border: 'none'
+                  }}
+                >
+                  Collaborate. Organize. Succeed
+                </p>
+                <div
+                  className="flex-grow border-0 w-full"
+                  style={{
+                    fontFamily: 'Lato',
+                    fontStyle: 'normal',
+                    fontWeight: 400,
+                    fontSize: 'clamp(9px, 1.4vw, 14px)',
+                    lineHeight: '1.4',
+                    color: 'rgba(0, 0, 0, 0.8)',
+                    margin: 0,
+                    padding: 0,
+                    border: 'none'
+                  }}
+                >
+                  <ul className="space-y-1 list-none border-0">
+                    <li className="flex items-start border-0">
+                      <span className="mr-1 sm:mr-2 mt-1 text-[#B30D02] font-bold border-0">•</span>
+                      <span className="border-0">Efficiently organize client visits and approvals</span>
+                    </li>
+                    <li className="flex items-start border-0">
+                      <span className="mr-1 sm:mr-2 mt-1 text-[#B30D02] font-bold border-0">•</span>
+                      <span className="border-0">Track billable hours and manage expenses</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
             ))}
           </div>
         </div>
@@ -318,7 +321,7 @@ export const FeaturesPage = () => {
           <p 
             className="text-white mb-8 sm:mb-12 max-w-4xl mx-auto"
             style={{
-              fontFamily: 'Poppins',
+              fontFamily: 'Lato',
               fontStyle: 'normal',
               fontWeight: 600,
               fontSize: 'clamp(20px, 3.5vw, 36px)',
@@ -486,7 +489,7 @@ export const FeaturesPage = () => {
                       <div 
                         className="bg-[#B30D02] rounded-xl sm:rounded-2xl p-3 sm:p-6 md:p-8 text-white shadow-lg sm:shadow-xl"
                         style={{
-                          fontFamily: 'Poppins',
+                          fontFamily: 'Lato',
                           fontStyle: 'normal',
                           fontWeight: 400,
                           fontSize: 'clamp(14px, 3vw, 20px)',

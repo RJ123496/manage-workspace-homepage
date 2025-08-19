@@ -1,17 +1,15 @@
 import React from "react";
-import client1 from "../assets/hero/client .png";
-import client2 from "../assets/hero/Clent 2.png";
-import client3 from "../assets/hero/Client 3.png";
 import clientsGallery from "../assets/hero/Our Clients.png";
+import { ClientTestimonial } from "./ClientTestimonial";
 
 export const TestimonialsSection = () => {
 
   return (
-    <section id="testimonials" className="bg-[#FFECEA] py-4 sm:py-12 lg:py-16 xl:py-20">
-      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="testimonials" className="bg-white py-2 sm:py-6 lg:py-8 xl:py-10">
+      <div className="w-full">
         {/* Title at the top */}
         <div className="text-center mb-4 sm:mb-8 lg:mb-12">
-          <h2 className="text-xl sm:text-2xl lg:text-3xl xl:text-4xl font-bold text-black mb-2 sm:mb-4 lg:mb-6 text-center">
+          <h2 className="text-xl sm:text-2xl lg:text-3xl xl:text-4xl font-bold text-[#B30D02] mb-2 sm:mb-4 lg:mb-6 text-center">
             Our Clients Reviews
           </h2>
           <p className="w-full max-w-[481px] h-auto text-sm sm:text-base lg:text-lg text-gray-500 mb-4 sm:mb-8 mx-auto">
@@ -22,39 +20,126 @@ export const TestimonialsSection = () => {
         {/* Main content layout */}
         <div className="flex flex-col gap-3 sm:gap-8 lg:gap-12">
           {/* Top - Client images gallery */}
-          <div className="w-full flex justify-center overflow-hidden">
+          <div className="w-full">
             <img
               src={clientsGallery}
               alt="Our clients and business showcase"
-              className="w-full max-w-[1230px] h-auto max-h-[474px] object-contain rounded-xl"
+              className="w-full h-auto object-contain"
             />
           </div>
 
-          {/* Testimonials Cards */}
-          <div className="w-full flex justify-center">
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-2 sm:gap-6 lg:gap-8 justify-center">
-              <div className="w-full max-w-[240px] sm:max-w-[320px] lg:max-w-[398px] h-[140px] sm:h-[220px] lg:h-[260px] border border-gray-200 rounded-lg overflow-hidden hover:scale-105 hover:shadow-xl transition-all duration-300 cursor-pointer">
-                <img
-                  src={client1}
-                  alt="Testimonial 1"
-                  className="w-full h-full object-contain"
-                />
-              </div>
-              <div className="w-full max-w-[240px] sm:max-w-[320px] lg:max-w-[398px] h-[140px] sm:h-[220px] lg:h-[260px] border border-gray-200 rounded-lg overflow-hidden hover:scale-105 hover:shadow-xl transition-all duration-300 cursor-pointer">
-                <img
-                  src={client2}
-                  alt="Testimonial 2"
-                  className="w-full h-full object-contain"
-                />
-              </div>
-              <div className="hidden md:block w-full max-w-[240px] sm:max-w-[320px] lg:max-w-[398px] h-[140px] sm:h-[220px] lg:h-[260px] border border-gray-200 rounded-lg overflow-hidden hover:scale-105 hover:shadow-xl transition-all duration-300 cursor-pointer">
-                <img
-                  src={client3}
-                  alt="Testimonial 3"
-                  className="w-full h-full object-contain"
-                />
+          {/* Trusted by Leaders Section Header */}
+          <div className="w-full">
+            <div className="relative w-full">
+
+              
+              {/* Main text with lines */}
+              <div className="flex items-center justify-center space-x-8">
+                <div className="flex-1 h-px bg-red-600"></div>
+                <h3 
+                  className="whitespace-nowrap px-8"
+                  style={{
+                    fontFamily: 'Outfit',
+                    fontWeight: 400,
+                    fontStyle: 'normal',
+                    fontSize: '20px',
+                    lineHeight: '100%',
+                    letterSpacing: '0%',
+                    width: '368px',
+                    height: '25px',
+                    opacity: 1,
+                    color: '#B30D02',
+                    textAlign: 'left',
+                    marginLeft: '-20px'
+                  }}
+                >
+                  Trusted by leaders from various industries
+                </h3>
+                <div className="flex-1 h-px bg-red-600"></div>
               </div>
             </div>
+          </div>
+
+          {/* Testimonials Cards - Scrollable Carousel */}
+          <div className="w-full">
+            <div className="w-full">
+              <div className="flex overflow-x-auto gap-4 sm:gap-6 lg:gap-8 pb-6 scrollbar-hide">
+                <div className="flex-shrink-0 w-[240px] sm:w-[320px] lg:w-[398px] h-[200px] sm:h-[300px] lg:h-[350px]">
+                  <ClientTestimonial
+                    name="James K."
+                    title="UI UX Designer"
+                    rating={5}
+                    testimonial="I love how simple the login process is, and the dashboard greets me personally every time."
+                    profileImage={require("../assets/hero/james.png")}
+                    className="w-full h-full"
+                  />
+                </div>
+                <div className="flex-shrink-0 w-[240px] sm:w-[320px] lg:w-[398px] h-[200px] sm:h-[300px] lg:h-[350px]">
+                  <ClientTestimonial
+                    name="Sarah Johnson"
+                    title="Startup Founder"
+                    rating={5}
+                    testimonial="ManageWorkspace has streamlined our daily operations—login is quick and secure!"
+                    profileImage={require("../assets/hero/Sarah.png")}
+                    className="w-full h-full"
+                  />
+                </div>
+                <div className="flex-shrink-0 w-[240px] sm:w-[320px] lg:w-[398px] h-[200px] sm:h-[300px] lg:h-[350px]">
+                  <ClientTestimonial
+                    name="Harsha Vardhan P."
+                    title="Digital Marketer"
+                    rating={5}
+                    testimonial="I love the variety of spaces available! Whether I need a quiet spot or a collaborative space, wordbook always has the perfect option."
+                    profileImage={require("../assets/hero/Harsha.png")}
+                    className="w-full h-full"
+                  />
+                </div>
+                <div className="flex-shrink-0 w-[240px] sm:w-[320px] lg:w-[398px] h-[200px] sm:h-[300px] lg:h-[350px]">
+                  <ClientTestimonial
+                    name="Emily Rodriguez"
+                    title="VP Operations, GrowthCorp"
+                    rating={5}
+                    testimonial="The comprehensive features and ease of use make this platform essential for modern workspace management."
+                    profileImage={require("../assets/hero/emily.png")}
+                    className="w-full h-full"
+                  />
+                </div>
+                <div className="flex-shrink-0 w-[240px] sm:w-[320px] lg:w-[398px] h-[200px] sm:h-[300px] lg:h-[350px]">
+                  <ClientTestimonial
+                    name="Michael Chen"
+                    title="Product Manager, TechFlow"
+                    rating={5}
+                    testimonial="The visitor management system is incredibly efficient. We've reduced check-in time by 70% since implementing ManageWorkspace."
+                    profileImage={require("../assets/hero/micheal.png")}
+                    className="w-full h-full"
+                  />
+                </div>
+                <div className="flex-shrink-0 w-[240px] sm:w-[320px] lg:w-[398px] h-[200px] sm:h-[300px] lg:h-[350px]">
+                  <ClientTestimonial
+                    name="Lisa Thompson"
+                    title="Office Manager, Creative Studios"
+                    rating={5}
+                    testimonial="Managing our coworking spaces has never been easier. The platform handles everything from bookings to billing seamlessly."
+                    profileImage={require("../assets/hero/Lisa.png")}
+                    className="w-full h-full"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* FAQ Background Section */}
+          <div 
+            className="w-full faq-background-section"
+            style={{
+              backgroundImage: `url(${require("../assets/hero/FAQ.png")})`,
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+              backgroundRepeat: 'no-repeat',
+              minHeight: '400px',
+              height: 'clamp(400px, 60vh, 671px)'
+            }}
+          >
           </div>
         </div>
       </div>

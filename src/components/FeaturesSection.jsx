@@ -1,190 +1,187 @@
-import React, { useState } from "react";
-
-import communityIcon from "../assets/Community.png";
-import dashboardIcon from "../assets/Dashboard.png";
-import membershipPassIcon from "../assets/Membership Pass.png";
-import serviceRequestIcon from "../assets/Service request.png";
-import referFriendIcon from "../assets/Refer a friend.png";
-import eventsManagementIcon from "../assets/Event Management .png";
-
-// Admin feature icons
-import leadManagementIcon from "../assets/Lead management.png";
-import checklistIcon from "../assets/Checklist.png";
-import expenseManagementIcon from "../assets/Expense Management.png";
-import visitorManagementIcon from "../assets/Visitor Management.png";
-import attendanceIcon from "../assets/Attendance .png";
-import adminEventsIcon from "../assets/Event Management .png";
+import React from "react";
 
 export const FeaturesSection = () => {
-  const [activeTab, setActiveTab] = useState("client");
-  
-  const clientFeatures = [
+  const features = [
     {
       id: 1,
-      title: "Community",
-      description: "Connect with workspace members through personalized feeds and real-time updates.",
-      mobileDescription: "Connect with members through personalized feeds.",
-      icon: communityIcon,
+      title: "AI Facial Recognition",
+      icon: "data:image/png;base64,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",
     },
     {
       id: 2,
-      title: "Dashboard",
-      description: "Centralized hub for booking spaces, viewing announcements, and managing activities.",
-      mobileDescription: "Book spaces and view announcements easily.",
-      icon: dashboardIcon,
+      title: "Desk Booking Management",
+      icon: require("../assets/features/Desk booking management.png"),
     },
     {
       id: 3,
-      title: "Membership Pass",
-      description: "Flexible access to workspace amenities with daily, weekly, or monthly pass options.",
-      mobileDescription: "Flexible access to workspace amenities.",
-      icon: membershipPassIcon,
+      title: "Events Management",
+      icon: require("../assets/features/Events Management.png"),
     },
     {
       id: 4,
-      title: "Service Request",
-      description: "Get immediate assistance and support for maintenance, technical issues, or general inquiries.",
-      mobileDescription: "Get immediate assistance and support.",
-      icon: serviceRequestIcon,
+      title: "Digital Signature",
+      icon: require("../assets/features/DIgital signature.png"),
     },
     {
       id: 5,
-      title: "Refer a friend",
-      description: "Invite friends and colleagues to join the workspace community with personalized referral links.",
-      mobileDescription: "Invite friends to join the workspace.",
-      icon: referFriendIcon,
+      title: "Meeting Room Bookings",
+      icon: require("../assets/features/Meeting room booking.png"),
     },
     {
       id: 6,
-      title: "Events Management",
-      description: "Discover and register for workshops, seminars, and networking events directly through the platform.",
-      mobileDescription: "Discover and register for events.",
-      icon: eventsManagementIcon,
-    },
-  ];
-
-  const adminFeatures = [
-    {
-      id: 1,
-      title: "Leads Management",
-      description: "Manage and track potential clients, leads, and business opportunities with CRM tools.",
-      mobileDescription: "Manage leads and opportunities.",
-      icon: leadManagementIcon,
+      title: "Virtual Office Management",
+      icon: require("../assets/features/Virtual office management.png"),
     },
     {
-      id: 2,
-      title: "Checklist",
-      description: "Create and manage task checklists, workflows, and operational procedures efficiently.",
-      mobileDescription: "Manage task checklists.",
-      icon: checklistIcon,
+      id: 7,
+      title: "Visitor's Data Management",
+      icon: require("../assets/features/Vistor data management .png"),
     },
     {
-      id: 3,
+      id: 8,
       title: "Expense Management",
-      description: "Track, categorize, and manage workspace expenses, budgets, and financial transactions.",
-      mobileDescription: "Track and manage expenses.",
-      icon: expenseManagementIcon,
+      icon: require("../assets/features/Fetures expense managment.png"),
     },
     {
-      id: 4,
-      title: "Visitor Management",
-      description: "Streamline visitor check-ins, security protocols, and guest access management.",
-      mobileDescription: "Manage visitor access.",
-      icon: visitorManagementIcon,
+      id: 9,
+      title: "CRM Management",
+      icon: require("../assets/features/CRM Management.png"),
     },
     {
-      id: 5,
-      title: "Attendance",
-      description: "Monitor employee attendance, track work hours, and manage workforce analytics.",
-      mobileDescription: "Track attendance.",
-      icon: attendanceIcon,
+      id: 10,
+      title: "Referrals Management",
+      icon: require("../assets/features/Referal Management.png"),
     },
     {
-      id: 6,
-      title: "Events Management",
-      description: "Plan, organize, and manage workspace events, meetings, and activities.",
-      mobileDescription: "Manage events.",
-      icon: adminEventsIcon,
+      id: 11,
+      title: "Lead Management",
+      icon: require("../assets/features/Features lead management.png"),
+    },
+    {
+      id: 12,
+      title: "Financial Reports",
+      icon: require("../assets/features/financial report.png"),
+    },
+    {
+      id: 13,
+      title: "Daily Checklist Management",
+      icon: require("../assets/features/Daily checklist Management.png"),
+    },
+    {
+      id: 14,
+      title: "Attendance Management",
+      icon: require("../assets/features/Attendance Management.png"),
+    },
+    {
+      id: 15,
+      title: "Space Management",
+      icon: require("../assets/features/Fetures Space management.png"),
+    },
+    {
+      id: 16,
+      title: "Vehicle's Management",
+      icon: require("../assets/features/VehiclesManagement.png"),
+    },
+    {
+      id: 17,
+      title: "Courier Management",
+      icon: require("../assets/features/Courier management.png"),
+    },
+    {
+      id: 18,
+      title: "Avg Seat Cost Report",
+      icon: require("../assets/features/AVG Seat cost report  .png"),
+    },
+    {
+      id: 19,
+      title: "Proposal Management",
+      icon: require("../assets/features/Proposal Management.png"),
+    },
+    {
+      id: 20,
+      title: "Staff Management",
+      icon: require("../assets/features/Staff management.png"),
+    },
+    {
+      id: 21,
+      title: "Membership Management",
+      icon: require("../assets/features/Membership mangement.png"),
+    },
+    {
+      id: 22,
+      title: "Seating Plan",
+      icon: require("../assets/features/Seating plan.png"),
+    },
+    {
+      id: 23,
+      title: "Payments Management",
+      icon: require("../assets/features/payments Management.png"),
+    },
+    {
+      id: 24,
+      title: "Hourly Desk Reports",
+      icon: require("../assets/features/Hourly desk report.png"),
     },
   ];
-
-  const features = activeTab === "client" ? clientFeatures : adminFeatures;
 
   return (
-    <section className="py-16 lg:py-24 bg-[#FFECEA]">
-      <div className="container mx-auto px-4 max-w-7xl">
-        {/* Header */}
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-black mb-4">
-            Our Features
+    <section className="py-8 sm:py-10 md:py-12 lg:py-16 bg-white min-h-[600px] px-3 sm:px-4 md:px-6 lg:px-8 xl:px-12 2xl:px-16">
+      <div className="container mx-auto max-w-[1440px]">
+        {/* Header with Enhanced Responsive Typography */}
+        <div className="text-center mb-6 sm:mb-8 md:mb-10 lg:mb-12 px-3 sm:px-4 md:px-6 lg:px-8">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-[#B30D02] mb-2 sm:mb-3 md:mb-4 leading-tight">
+            Features
           </h2>
-          <p className="text-lg md:text-xl text-black max-w-4xl mx-auto leading-relaxed">
-            Everything you need to run and manage a modern workspace.
+          <p className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl text-black max-w-xs sm:max-w-sm md:max-w-2xl lg:max-w-4xl xl:max-w-5xl mx-auto leading-relaxed">
+            Everything you need to streamline the workspace operations.
           </p>
         </div>
         
-        {/* Interactive Toggle */}
-        <div className="flex justify-center mb-12">
-          <div className="flex bg-white rounded-xl p-1 shadow-lg">
-            <button 
-              onClick={() => setActiveTab("client")}
-              className={`px-6 py-3 rounded-lg text-sm md:text-base font-medium transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[#B30D02] focus:ring-offset-2 ${
-                activeTab === "client" 
-                  ? "bg-[#B30D02] text-white shadow-md" 
-                  : "text-black hover:bg-gray-50"
-              }`}
-              aria-label="View client features"
-            >
-              Client Features
-            </button>
-            <button 
-              onClick={() => setActiveTab("admin")}
-              className={`px-6 py-3 rounded-lg text-sm md:text-base font-medium transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[#B30D02] focus:ring-offset-2 ${
-                activeTab === "admin" 
-                  ? "bg-[#B30D02] text-white shadow-md" 
-                  : "text-black hover:bg-gray-50"
-              }`}
-              aria-label="View admin features"
-            >
-              Admin Features
-            </button>
-          </div>
-        </div>
-        
-        {/* Features Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8">
-          {features.map((feature) => (
+        {/* Enhanced Responsive Grid System */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 2xl:grid-cols-6 gap-3 sm:gap-4 md:gap-5 lg:gap-6 xl:gap-6 justify-items-center px-2 sm:px-3 md:px-4 lg:px-6">
+          {features.map((feature, index) => (
             <div
               key={feature.id}
-              className="bg-white rounded-3xl shadow-lg p-4 md:p-6 hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group cursor-pointer w-full max-w-[176px] md:max-w-[246px] lg:max-w-[362px] h-auto min-h-[240px] md:min-h-[304px] lg:min-h-[347px]"
-              tabIndex={0}
-              role="button"
-              aria-label={`Learn more about ${feature.title}`}
-              onKeyDown={(e) => {
-                if (e.key === 'Enter' || e.key === ' ') {
-                  e.preventDefault();
-                  // Add any click functionality here
-                }
-              }}
+              className="flex flex-col items-center text-center group cursor-pointer p-3 sm:p-4 md:p-5 lg:p-6 hover:bg-gray-50 rounded-xl transition-all duration-300 w-full max-w-[140px] sm:max-w-[150px] md:max-w-[160px] lg:max-w-[180px] xl:max-w-[200px]"
             >
-              {/* Image Container */}
-              <div className="mb-4 flex justify-center items-center">
-                <img
-                  src={feature.icon}
-                  alt={`${feature.title} icon`}
-                  className="w-26 h-22 md:w-32 md:h-29 lg:w-[189px] lg:h-[160px] object-contain rounded-lg group-hover:scale-105 transition-transform duration-300"
-                  loading="lazy"
-                />
+              {/* Responsive Icon Container */}
+              <div 
+                className="bg-[#B30D02] rounded-[15.96px] flex items-center justify-center mb-3 sm:mb-4 group-hover:scale-105 transition-transform duration-300 overflow-hidden"
+                style={{
+                  width: 'clamp(50px, 12vw, 80px)',
+                  height: 'clamp(50px, 12vw, 80px)',
+                  minWidth: '50px',
+                  minHeight: '50px',
+                  maxWidth: '80px',
+                  maxHeight: '80px'
+                }}
+              >
+                {typeof feature.icon === 'string' && feature.icon.startsWith('data:') ? (
+                  // Base64 image data
+                  <img
+                    src={feature.icon}
+                    alt={feature.title}
+                    className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 lg:w-12 lg:h-12 object-contain"
+                  />
+                ) : typeof feature.icon === 'string' ? (
+                  // Emoji fallback
+                  <div className="text-xl sm:text-2xl md:text-3xl lg:text-4xl text-white flex items-center justify-center">
+                    {feature.icon}
+                  </div>
+                ) : (
+                  // Imported image file
+                  <img
+                    src={feature.icon}
+                    alt={feature.title}
+                    className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 lg:w-12 lg:h-12 object-contain"
+                  />
+                )}
               </div>
               
-              {/* Content */}
-              <h3 className="text-lg md:text-xl font-bold text-black mb-2 md:mb-3 text-center group-hover:text-[#B30D02] transition-colors duration-300">
+              {/* Responsive Feature Title */}
+              <h3 className="text-xs sm:text-sm md:text-base lg:text-lg font-medium text-black leading-tight max-w-[120px] sm:max-w-[130px] md:max-w-[140px] lg:max-w-[150px] xl:max-w-[160px] text-center line-clamp-2">
                 {feature.title}
               </h3>
-              <p className="text-sm md:text-base text-gray-800 leading-relaxed text-center">
-                <span className="block md:hidden">{feature.mobileDescription || feature.description}</span>
-                <span className="hidden md:block">{feature.description}</span>
-              </p>
             </div>
           ))}
         </div>

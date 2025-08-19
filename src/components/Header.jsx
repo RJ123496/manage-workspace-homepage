@@ -93,7 +93,7 @@ export const Header = ({ onBookLiveClick }) => {
 
   return (
     <header className="bg-[#FFECEA] shadow-sm sticky top-0 z-50">
-      <nav className="max-w-[1440px] mx-auto px-4 sm:px-6 py-3 sm:py-4">
+      <nav className="max-w-[1440px] mx-auto px-3 sm:px-4 md:px-6 lg:px-8 py-2 sm:py-3 md:py-4">
         <div className="flex justify-between items-center">
           {/* Logo */}
           <div className="flex items-center cursor-pointer" onClick={() => {
@@ -107,12 +107,12 @@ export const Header = ({ onBookLiveClick }) => {
             <img 
               src={logo} 
               alt="Manage Workspace Logo" 
-              className="h-12 sm:h-16 w-auto"
+              className="h-8 sm:h-10 md:h-12 lg:h-16 w-auto"
             />
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center space-x-8">
+          <nav className="hidden lg:flex items-center space-x-4 xl:space-x-6 2xl:space-x-8">
             {navItems.map((item, index) => (
               <button
                 key={index}
@@ -123,7 +123,7 @@ export const Header = ({ onBookLiveClick }) => {
                     scrollToSection(item.sectionId);
                   }
                 }}
-                className="text-gray-600 hover:text-[#b30d02] font-medium transition-colors duration-200 relative group"
+                className="text-gray-600 hover:text-[#b30d02] font-medium transition-colors duration-200 relative group text-sm xl:text-base 2xl:text-lg px-2 py-1 rounded-md hover:bg-gray-100"
               >
                 {item.label}
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#b30d02] group-hover:w-full transition-all duration-200"></span>
@@ -142,7 +142,7 @@ export const Header = ({ onBookLiveClick }) => {
                   window.location.href = '/#contact';
                 }
               }}
-              className="bg-[#b30d02] text-white px-6 py-2.5 rounded-lg font-medium hover:bg-red-700 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+              className="bg-[#b30d02] text-white px-4 sm:px-6 py-2 sm:py-2.5 rounded-lg font-medium hover:bg-red-700 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 text-sm xl:text-base min-h-[44px]"
             >
               Contact Us
             </button>
@@ -151,7 +151,7 @@ export const Header = ({ onBookLiveClick }) => {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="lg:hidden relative z-50 p-2 min-h-[44px] min-w-[44px] rounded-lg hover:bg-gray-100 transition-colors"
+            className="lg:hidden relative z-50 p-2 min-h-[44px] min-w-[44px] rounded-lg hover:bg-gray-100 transition-colors focus:outline-none focus:ring-2 focus:ring-[#b30d02] focus:ring-offset-2"
             aria-label="Toggle mobile menu"
             aria-expanded={isMobileMenuOpen}
           >
@@ -170,10 +170,10 @@ export const Header = ({ onBookLiveClick }) => {
           </button>
         </div>
 
-        {/* Mobile Menu - Dropdown Style */}
+        {/* Mobile Menu - Enhanced Dropdown Style */}
         {isMobileMenuOpen && (
-          <div className="lg:hidden mt-4 pb-4 border-t border-gray-200 bg-[#FFECEA] shadow-lg rounded-b-lg">
-            <div className="flex flex-col space-y-4 pt-4 px-4">
+          <div className="lg:hidden mt-3 sm:mt-4 pb-4 border-t border-gray-200 bg-[#FFECEA] shadow-lg rounded-b-lg">
+            <div className="flex flex-col space-y-2 sm:space-y-3 pt-4 px-3 sm:px-4">
               {navItems.map((item, index) => (
                 <button
                   key={index}
@@ -184,7 +184,7 @@ export const Header = ({ onBookLiveClick }) => {
                       scrollToSection(item.sectionId);
                     }
                   }}
-                  className="text-gray-600 hover:text-[#b30d02] font-medium py-3 px-4 rounded-lg hover:bg-gray-100 transition-colors text-left min-h-[44px] border-b border-gray-100"
+                  className="text-gray-600 hover:text-[#b30d02] font-medium py-3 sm:py-4 px-3 sm:px-4 rounded-lg hover:bg-gray-100 transition-colors text-left min-h-[44px] border-b border-gray-100 text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-[#b30d02] focus:ring-inset"
                 >
                   {item.label}
                 </button>
@@ -198,7 +198,7 @@ export const Header = ({ onBookLiveClick }) => {
                     window.location.href = '/#contact';
                   }
                 }}
-                className="bg-[#b30d02] text-white px-6 py-3 rounded-lg font-medium hover:bg-red-700 transition-all duration-200 text-center mt-2 min-h-[44px] shadow-lg hover:shadow-xl"
+                className="bg-[#b30d02] text-white px-4 sm:px-6 py-3 sm:py-4 rounded-lg font-medium hover:bg-red-700 transition-colors duration-200 text-center mt-2 sm:mt-3 min-h-[44px] shadow-lg hover:shadow-xl text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-[#b30d02]"
               >
                 Contact Us
               </button>

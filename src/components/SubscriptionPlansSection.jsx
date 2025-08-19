@@ -47,7 +47,8 @@ export const SubscriptionPlansSection = () => {
         "Visitor records", 
         "Expenses tracking",
         "Tracking Attendance",
-        "Up to 50 Users Sign Up"
+        "Up to 50 Users Sign Up",
+        "$ 69.03 /month"
       ],
       savings: "Save $33 per year",
       highlighted: false,
@@ -55,13 +56,14 @@ export const SubscriptionPlansSection = () => {
     {
       title: "100 members plan",
       price: "$138.06", 
-      description: "Perfect for growing teams, track attendance, manage up to 100 employees, and monitor visitor records, with expense tracking included.",
+      description: "Ideal for small teams, track attendance, manage up to 100 employees, and monitor visitor records, with expense tracking included.",
       features: [
         "Employee Record and Data",
         "Visitor records",
         "Expenses tracking", 
         "Tracking Attendance",
-        "Up to 100 Users Sign Up"
+        "Up to 100 Users Sign Up",
+        "$ 138.06 /month"
       ],
       savings: "Save $73 per year",
       highlighted: true,
@@ -69,13 +71,14 @@ export const SubscriptionPlansSection = () => {
     {
       title: "250 members plan",
       price: "$345.15",
-      description: "For large organizations, track attendance, manage up to 250 employees, and monitor visitor records, with expense tracking included.",
+      description: "Ideal for small teams, track attendance, manage up to 250 employees, and monitor visitor records, with expense tracking included.",
       features: [
         "Employee Record and Data",
         "Visitor records",
         "Expenses tracking",
         "Tracking Attendance", 
-        "Up to 250 Users Sign Up"
+        "Up to 250 Users Sign Up",
+        "$ 345.15 /month"
       ],
       savings: "Save $143 per year",
       highlighted: false,
@@ -83,23 +86,37 @@ export const SubscriptionPlansSection = () => {
   ];
 
   return (
-    <section className="py-8 sm:py-12 lg:py-16 xl:py-20 px-4 sm:px-6 bg-[#FFECEA]">
-      <div className="max-w-[1200px] mx-auto">
-        <h2 className="text-xl sm:text-2xl lg:text-3xl xl:text-4xl font-bold text-gray-800 mb-3 sm:mb-4 text-center">
+    <section className="py-12 sm:py-16 lg:py-20 xl:py-24 px-3 sm:px-6 lg:px-10 bg-white overflow-hidden min-h-screen">
+      <div className="max-w-[1400px] mx-auto">
+        <h2 className="text-xl sm:text-2xl lg:text-3xl xl:text-4xl font-bold text-gray-800 mb-4 sm:mb-6 lg:mb-8 xl:mb-10 text-center px-2">
           Our Subscription Plans
         </h2>
         
-        <p className="text-sm sm:text-base lg:text-lg xl:text-xl text-gray-600 text-center mb-6 sm:mb-8 lg:mb-12 px-4">
+        <p className="text-sm sm:text-base lg:text-lg xl:text-xl text-gray-600 text-center mb-8 sm:mb-10 lg:mb-12 xl:mb-16 px-3 sm:px-4">
           Our dedicated support team is always ready to assist you, providing
           quick and effective solutions to any issues you may encounter.
         </p>
 
+
+
         {/* Toggle */}
-        <div className="flex justify-center mb-8 sm:mb-10 lg:mb-12 xl:mb-16">
-          <div className="flex bg-white rounded-xl p-1 shadow-lg">
+        <div className="flex justify-center mb-8 sm:mb-12 lg:mb-16 xl:mb-20 px-3">
+          <div 
+            className="flex bg-white rounded-2xl shadow-lg"
+            style={{
+              width: '480px',
+              height: '80px',
+              gap: '8px',
+              borderRadius: '16px',
+              paddingTop: '10px',
+              paddingRight: '16px',
+              paddingBottom: '10px',
+              paddingLeft: '16px'
+            }}
+          >
             <button 
               onClick={() => setActiveTab('paid')}
-              className={`px-6 py-3 rounded-lg text-sm md:text-base font-medium transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[#B30D02] focus:ring-offset-2 ${
+              className={`flex-1 rounded-xl text-sm sm:text-base lg:text-lg xl:text-xl font-semibold transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[#B30D02] focus:ring-offset-2 min-h-[44px] ${
                 activeTab === 'paid' 
                   ? 'bg-[#B30D02] text-white shadow-md' 
                   : 'text-black hover:bg-gray-50'
@@ -113,73 +130,115 @@ export const SubscriptionPlansSection = () => {
                 setActiveTab('free');
                 setShowFreeTrialModal(true);
               }}
-              className={`px-6 py-3 rounded-lg text-sm md:text-base font-medium transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[#B30D02] focus:ring-offset-2 ${
+              className={`subscription-toggle-btn flex-1 rounded-xl text-sm font-semibold transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[#B30D02] focus:ring-offset-2 min-h-[44px] ${
                 activeTab === 'free' 
                   ? 'bg-[#B30D02] text-white shadow-md' 
                   : 'text-black hover:bg-gray-50'
               }`}
               aria-label="Start free trial"
             >
-              Free trial
+              Free trail
             </button>
           </div>
         </div>
 
         {/* Plans Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
+        <div className="flex flex-col lg:flex-row items-center justify-center gap-4 sm:gap-6 lg:gap-0 mb-8 sm:mb-12 lg:mb-16 xl:mb-20 px-3">
           {plans.map((plan, index) => (
             <div
               key={index}
-              className={`relative bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-6 lg:p-8 text-center transition-all duration-300 cursor-pointer hover:border-[#b30d02] hover:-translate-y-2 ${
+              className={`relative bg-white text-center transition-all duration-300 cursor-pointer hover:border-[#b30d02] hover:-translate-y-1 lg:hover:-translate-y-2 flex flex-col w-full max-w-[350px] sm:max-w-[400px] lg:max-w-none ${
                 plan.highlighted 
-                  ? 'border-2 border-gray-200' 
-                  : 'border-2 border-gray-200'
+                  ? 'scale-100 lg:scale-105 transform-gpu z-10' 
+                  : ''
+              } ${
+                plan.highlighted ? 'min-h-[700px] sm:min-h-[800px] lg:min-h-[900px]' : 'min-h-[650px] sm:min-h-[750px] lg:min-h-[800px]'
               }`}
+              style={{
+                padding: '20px 16px 32px',
+                border: '2px solid #b30d02',
+                borderRadius: '16px',
+                marginLeft: index === 0 ? '0' : '0',
+                marginTop: index === 0 ? '0' : '0'
+              }}
             >
               {/* Recommended Ribbon */}
               {plan.highlighted && (
-                <div className="absolute -top-2 sm:-top-3 -right-2 sm:-right-3 bg-gradient-to-r from-[#b30d02] to-[#d9372d] text-white px-3 sm:px-4 py-1 rounded-full text-xs font-bold transform rotate-12 z-10">
+                <div className="absolute -top-2 sm:-top-3 left-1/2 -translate-x-1/2 bg-gradient-to-r from-[#b30d02] to-[#d9372d] text-white px-3 sm:px-4 py-1 rounded-full text-xs font-bold z-10">
                   RECOMMENDED
                 </div>
               )}
               
-              <h3 className="text-base sm:text-lg lg:text-xl xl:text-2xl font-semibold text-gray-800 mb-2 sm:mb-3 lg:mb-4">
+              <h3 className={`font-semibold text-gray-800 mb-3 sm:mb-4 lg:mb-5 ${
+                plan.highlighted 
+                  ? 'text-lg sm:text-xl lg:text-2xl xl:text-3xl' 
+                  : 'text-lg sm:text-xl lg:text-2xl xl:text-3xl'
+              }`}>
                 {plan.title}
               </h3>
               
-              <div className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold text-gray-800 mb-1 sm:mb-2">
+              <div className={`font-bold text-gray-800 mb-2 sm:mb-3 ${
+                plan.highlighted 
+                  ? 'text-3xl sm:text-4xl lg:text-5xl xl:text-6xl' 
+                  : 'text-3xl sm:text-4xl lg:text-5xl xl:text-6xl'
+              }`}>
                 {plan.price}
               </div>
               
-              <div className="text-gray-500 text-sm sm:text-base lg:text-lg mb-3 sm:mb-4 lg:mb-6">
+              <div className={`text-gray-500 mb-4 sm:mb-5 lg:mb-6 ${
+                plan.highlighted 
+                  ? 'text-base sm:text-lg lg:text-xl' 
+                  : 'text-base sm:text-lg lg:text-xl'
+              }`}>
                 per month
               </div>
               
-              <p className="text-xs sm:text-sm lg:text-base text-gray-600 mb-4 sm:mb-6 lg:mb-8 leading-relaxed">
+              <p 
+                className={`text-gray-600 mb-4 sm:mb-5 lg:mb-6 leading-relaxed ${
+                  plan.highlighted 
+                    ? 'text-sm sm:text-base lg:text-lg' 
+                    : 'text-sm sm:text-base lg:text-lg'
+                }`}
+                style={plan.highlighted ? { marginTop: '120px' } : { marginTop: '24px' }}
+              >
                 {plan.description}
               </p>
               
-              <ul className="text-left text-gray-700 mb-4 sm:mb-6 lg:mb-8 space-y-1.5 sm:space-y-2">
+              <ul className={`mb-4 sm:mb-5 lg:mb-6 space-y-2 sm:space-y-2.5 text-center ${
+                plan.highlighted 
+                  ? 'text-gray-500' 
+                  : 'text-gray-700'
+              }`}>
                 {plan.features.map((feature, featureIndex) => (
-                  <li key={featureIndex} className="flex items-center text-xs sm:text-sm lg:text-base">
-                    <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-[#b30d02] rounded-full mr-2 sm:mr-3 flex-shrink-0"></div>
+                  <li key={featureIndex} className={`flex items-center justify-center text-sm sm:text-base lg:text-lg`}>
+                    <div className={`bg-black rounded-full mr-2 sm:mr-3 lg:mr-4 flex-shrink-0 ${
+                      plan.highlighted 
+                        ? 'w-2 h-2 sm:w-2.5 sm:h-2.5 lg:w-3 lg:h-3' 
+                        : 'w-2 h-2 sm:w-2.5 sm:h-2.5 lg:w-3 lg:h-3'
+                    }`}></div>
                     {feature}
                   </li>
                 ))}
               </ul>
               
-              <button 
-                onClick={() => {
-                  setSelectedPlan(plan);
-                  setShowRequestAccessModal(true);
-                }}
-                className="w-full py-2 sm:py-3 px-3 sm:px-4 lg:px-6 rounded-2xl sm:rounded-3xl text-xs sm:text-sm lg:text-base font-semibold transition-colors mb-2 sm:mb-3 lg:mb-4 border-2 border-[#b30d02] text-[#b30d02] hover:bg-[#b30d02] hover:text-white"
-              >
-                Request Access
-              </button>
-              
-              <div className="text-gray-500 text-xs sm:text-sm">
-                {plan.savings}
+              <div className={`mt-auto ${plan.highlighted ? 'mt-4' : ''}`}>
+                <button 
+                  onClick={() => {
+                    setSelectedPlan(plan);
+                    setShowRequestAccessModal(true);
+                  }}
+                  className={`w-full py-3 sm:py-4 px-4 sm:px-6 lg:px-8 rounded-xl sm:rounded-2xl lg:rounded-3xl text-base sm:text-lg lg:text-xl xl:text-2xl font-semibold transition-colors mb-3 sm:mb-4 lg:mb-5 min-h-[44px] ${
+                    plan.highlighted 
+                      ? 'bg-[#b30d02] text-white hover:bg-[#8a0a01] border-2 border-[#b30d02]' 
+                      : 'border-2 border-[#b30d02] text-[#b30d02] hover:bg-[#b30d02] hover:text-white'
+                  }`}
+                >
+                  Request Access
+                </button>
+                
+                <div className="text-gray-500 text-sm sm:text-base lg:text-lg">
+                  {plan.savings}
+                </div>
               </div>
             </div>
           ))}
@@ -188,20 +247,20 @@ export const SubscriptionPlansSection = () => {
 
       {/* Free Trial Modal */}
       {showFreeTrialModal && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-          <div className="bg-white rounded-2xl p-8 max-w-md w-full mx-4 relative">
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-3">
+          <div className="bg-white rounded-2xl p-6 sm:p-8 max-w-md w-full mx-4 relative max-h-[90vh] overflow-y-auto">
             <button 
               onClick={closeFreeTrialModal}
-              className="absolute top-4 right-4 text-gray-500 hover:text-gray-700 text-2xl"
+              className="absolute top-4 right-4 text-gray-500 hover:text-gray-700 text-2xl min-h-[44px] min-w-[44px]"
             >
               ×
             </button>
             
-            <h2 className="text-2xl font-bold text-gray-800 mb-4 text-center">
+            <h2 className="text-xl sm:text-2xl font-bold text-gray-800 mb-4 text-center">
               Start Your Free Trial
             </h2>
             
-            <p className="text-gray-600 mb-6 text-center">
+            <p className="text-gray-600 mb-6 text-center text-sm sm:text-base">
               Try all our features for 14 days absolutely free. No credit card required.
             </p>
             
@@ -219,7 +278,7 @@ export const SubscriptionPlansSection = () => {
                 </label>
                 <input 
                   type="text" 
-                  className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:border-[#b30d02]"
+                  className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:border-[#b30d02] min-h-[44px]"
                   placeholder="Enter your company name"
                   required
                 />
@@ -231,7 +290,7 @@ export const SubscriptionPlansSection = () => {
                 </label>
                 <input 
                   type="email" 
-                  className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:border-[#b30d02]"
+                  className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:border-[#b30d02] min-h-[44px]"
                   placeholder="Enter your email"
                   required
                 />
@@ -242,7 +301,7 @@ export const SubscriptionPlansSection = () => {
                   Number of Employees
                 </label>
                 <select 
-                  className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:border-[#b30d02]"
+                  className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:border-[#b30d02] min-h-[44px]"
                   required
                 >
                   <option value="">Select range</option>
@@ -255,7 +314,7 @@ export const SubscriptionPlansSection = () => {
               
               <button 
                 type="submit"
-                className="w-full bg-[#b30d02] text-white py-3 rounded-lg font-semibold hover:bg-red-700 transition-colors"
+                className="w-full bg-[#B30D02] text-white py-3 rounded-lg font-semibold hover:bg-red-700 transition-colors min-h-[44px]"
               >
                 Start Free Trial
               </button>
@@ -270,24 +329,24 @@ export const SubscriptionPlansSection = () => {
 
       {/* Request Access Modal */}
       {showRequestAccessModal && selectedPlan && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-          <div className="bg-white rounded-2xl p-8 max-w-md w-full mx-4 relative">
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-3">
+          <div className="bg-white rounded-2xl p-6 sm:p-8 max-w-md w-full mx-4 relative max-h-[90vh] overflow-y-auto">
             <button 
               onClick={() => setShowRequestAccessModal(false)}
-              className="absolute top-4 right-4 text-gray-500 hover:text-gray-700 text-2xl"
+              className="absolute top-4 right-4 text-gray-500 hover:text-gray-700 text-2xl min-h-[44px] min-w-[44px]"
             >
               ×
             </button>
             
-            <h2 className="text-2xl font-bold text-gray-800 mb-4 text-center">
+            <h2 className="text-xl sm:text-2xl font-bold text-gray-800 mb-4 text-center">
               Request Access to {selectedPlan.title}
             </h2>
             
             <div className="text-center mb-6">
-              <div className="text-3xl font-bold text-[#b30d02] mb-2">
+              <div className="text-2xl sm:text-3xl font-bold text-[#b30d02] mb-2">
                 {selectedPlan.price}
               </div>
-              <div className="text-gray-500">per month</div>
+              <div className="text-gray-500 text-sm sm:text-base">per month</div>
             </div>
             
             <form 
@@ -304,7 +363,7 @@ export const SubscriptionPlansSection = () => {
                 </label>
                 <input 
                   type="text" 
-                  className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:border-[#b30d02]"
+                  className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:border-[#b30d02] min-h-[44px]"
                   placeholder="Enter your company name"
                   required
                 />
@@ -316,7 +375,7 @@ export const SubscriptionPlansSection = () => {
                 </label>
                 <input 
                   type="email" 
-                  className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:border-[#b30d02]"
+                  className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:border-[#b30d02] min-h-[44px]"
                   placeholder="Enter your email"
                   required
                 />
@@ -328,7 +387,7 @@ export const SubscriptionPlansSection = () => {
                 </label>
                 <input 
                   type="tel" 
-                  className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:border-[#b30d02]"
+                  className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:border-[#b30d02] min-h-[44px]"
                   placeholder="Enter your phone number"
                   required
                 />
@@ -339,14 +398,14 @@ export const SubscriptionPlansSection = () => {
                   Message (Optional)
                 </label>
                 <textarea 
-                  className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:border-[#b30d02] h-20"
+                  className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:border-[#b30d02] h-20 min-h-[44px]"
                   placeholder="Tell us about your requirements..."
                 ></textarea>
               </div>
               
               <button 
                 type="submit"
-                className="w-full bg-[#b30d02] text-white py-3 rounded-lg font-semibold hover:bg-red-700 transition-colors"
+                className="w-full bg-[#B30D02] text-white py-3 rounded-lg font-semibold hover:bg-red-700 transition-colors min-h-[44px]"
               >
                 Submit Request
               </button>

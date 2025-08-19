@@ -112,7 +112,7 @@ const MobileContactForm = () => {
           <h2 
             className="text-black font-semibold"
             style={{
-              fontFamily: 'Poppins, sans-serif',
+              fontFamily: 'Lato, sans-serif',
               fontSize: '20px',
               lineHeight: '28px',
               fontWeight: 600
@@ -127,7 +127,7 @@ const MobileContactForm = () => {
           <p 
             className="text-black"
             style={{
-              fontFamily: 'Poppins, sans-serif',
+              fontFamily: 'Lato, sans-serif',
               fontSize: '12px',
               lineHeight: '16px',
               fontWeight: 400,
@@ -157,7 +157,7 @@ const MobileContactForm = () => {
                 }`}
                 style={{
                   height: '40px',
-                  fontFamily: 'Poppins, sans-serif',
+                  fontFamily: 'Lato, sans-serif',
                   fontSize: '14px',
                   lineHeight: '20px',
                   fontWeight: 400
@@ -184,7 +184,7 @@ const MobileContactForm = () => {
                 }`}
                 style={{
                   height: '40px',
-                  fontFamily: 'Poppins, sans-serif',
+                  fontFamily: 'Lato, sans-serif',
                   fontSize: '14px',
                   lineHeight: '20px',
                   fontWeight: 400
@@ -214,7 +214,7 @@ const MobileContactForm = () => {
                 }`}
                 style={{
                   height: '40px',
-                  fontFamily: 'Poppins, sans-serif',
+                  fontFamily: 'Lato, sans-serif',
                   fontSize: '14px',
                   lineHeight: '20px',
                   fontWeight: 400
@@ -234,14 +234,14 @@ const MobileContactForm = () => {
                 placeholder="Mobile Number"
                 value={formData.mobileNumber}
                 onChange={handleInputChange}
-                className={`w-full border rounded-xl px-3 py-3 text-gray-600 placeholder-gray-400 focus:outline-none focus:ring-1 transition-colors ${
+                className={`w-full border rounded-xl px-3 py-4 text-gray-600 placeholder-gray-400 focus:outline-none focus:ring-1 transition-colors ${
                   errors.mobileNumber 
                     ? 'border-red-500 focus:border-red-600 focus:ring-red-600' 
                     : 'border-gray-300 focus:border-red-600 focus:ring-red-600'
                 }`}
                 style={{
                   height: '40px',
-                  fontFamily: 'Poppins, sans-serif',
+                  fontFamily: 'Lato, sans-serif',
                   fontSize: '14px',
                   lineHeight: '20px',
                   fontWeight: 400
@@ -269,7 +269,7 @@ const MobileContactForm = () => {
               }`}
               style={{
                 height: '40px',
-                fontFamily: 'Poppins, sans-serif',
+                fontFamily: 'Lato, sans-serif',
                 fontSize: '14px',
                 lineHeight: '20px',
                 fontWeight: 400
@@ -290,7 +290,7 @@ const MobileContactForm = () => {
               style={{
                 height: '40px',
                 backgroundColor: '#B30D02',
-                fontFamily: 'Poppins, sans-serif',
+                fontFamily: 'Lato, sans-serif',
                 fontSize: '16px',
                 lineHeight: '24px',
                 fontWeight: 500

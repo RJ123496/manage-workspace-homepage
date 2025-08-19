@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import faqImage from "../assets/hero/FAQ.png";
 
 export const FaqSection = () => {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -34,49 +33,53 @@ export const FaqSection = () => {
   };
 
   return (
-    <section className="py-8 sm:py-12 lg:py-20 px-0 bg-[#FFECEA]">
+    <section className="py-2 sm:py-4 lg:py-6 px-0 relative bg-white">
       <div className="w-full">
-        {/* FAQ Image */}
-        <div className="w-full h-[250px] sm:h-[300px] lg:h-[400px] mb-8 sm:mb-12 lg:mb-16 overflow-hidden">
-          <img
-            src={faqImage}
-            alt="FAQ - Frequently Asked Questions"
-            className="w-full h-full object-contain"
-          />
-        </div>
-
         <div className="max-w-[1000px] mx-auto px-4 sm:px-6">
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-800 mb-4 sm:mb-6 lg:mb-8 text-center">
-            Frequently Asked Queries
+          <h2 
+            className="mb-6 text-center"
+            style={{
+              fontFamily: 'Nunito, sans-serif',
+              fontWeight: 700,
+              fontSize: '36px',
+              lineHeight: '120%',
+              color: '#B30D02'
+            }}
+          >
+            Frequently Asked Questions
           </h2>
+          
+          <p 
+            className="text-center mb-12 text-gray-600 text-lg"
+            style={{
+              fontFamily: 'Nunito, sans-serif',
+              fontWeight: 400,
+              lineHeight: '140%'
+            }}
+          >
+            Everything you need to know, all in one place.
+          </p>
 
-          <div className="mb-6 sm:mb-8 lg:mb-12">
-            <h3 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold mb-2 sm:mb-3 lg:mb-4">
-              <span className="text-gray-800">Any questions ?</span>
-              <br className="hidden sm:block" />
-              <br className="hidden sm:block" />
-              <span className="text-gray-400">We got you.</span>
-            </h3>
-          </div>
 
-          <div className="bg-[#FFECEA] rounded-lg border-2 border-transparent">
+
+          <div className="bg-white rounded-xl">
             {faqItems.map((item, index) => (
-              <div key={index} className="border-b border-gray-300 last:border-b-0">
+              <div key={index} className="border-b border-gray-400 last:border-b-0">
                 <button
-                  className="w-full px-4 sm:px-6 lg:px-8 py-4 sm:py-5 lg:py-6 text-left flex justify-between items-start sm:items-center hover:bg-white/50 transition-colors"
+                  className="w-full px-6 py-5 text-left flex justify-between items-center hover:bg-gray-50 transition-colors duration-200"
                   onClick={() => toggleFaq(index)}
                   aria-expanded={activeIndex === index}
                 >
-                  <span className="text-sm sm:text-base lg:text-xl font-semibold text-gray-800 pr-4 sm:pr-6 lg:pr-8 leading-tight">
+                  <span className="text-base font-medium text-gray-800 pr-4 leading-tight">
                     {item.question}
                   </span>
-                  <div className="flex items-center justify-center w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-white/80 flex-shrink-0 mt-1 sm:mt-0">
+                  <div className="flex items-center justify-center w-8 h-8 rounded-full bg-[#B30D02]/10 flex-shrink-0">
                     {activeIndex === index ? (
-                      <svg className="w-3 h-3 sm:w-4 sm:h-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <svg className="w-5 h-5 text-[#B30D02]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20 12H4" />
                       </svg>
                     ) : (
-                      <svg className="w-3 h-3 sm:w-4 sm:h-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <svg className="w-5 h-5 text-[#B30D02]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
                       </svg>
                     )}
@@ -84,9 +87,9 @@ export const FaqSection = () => {
                 </button>
                 
                 {activeIndex === index && (
-                  <div className="px-4 sm:px-6 lg:px-8 pb-4 sm:pb-6 lg:pb-8 animate-fadeIn">
-                    <div className="pt-3 sm:pt-4 border-t border-gray-100">
-                      <p className="text-gray-700 text-sm sm:text-base lg:text-lg leading-relaxed">
+                  <div className="px-6 pb-5 animate-fadeIn">
+                    <div className="pt-2">
+                      <p className="text-gray-600 text-base leading-relaxed">
                         {item.answer}
                       </p>
                     </div>
